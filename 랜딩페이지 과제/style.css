@@ -1,0 +1,398 @@
+/* 전역 스타일 초기화 및 라이온즈 컬러 콘셉트 설정 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: linear-gradient(135deg, #073b94 0%, #0c2340 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* 상단 고정 헤더 & 햄버거 메뉴 */
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #071930;
+    color: #fff;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-bottom: 2px solid #ffcc00;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* 헤더 이미지 스타일 */
+.header-logo-wrap {
+    display: flex;
+    align-items: center;
+    width: min(220px, calc(100vw - 100px));
+    height: 48px;
+}
+
+.header-logo-wrap a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* 햄버거 버튼 숨김 체크박스 */
+.menu-toggle {
+    display: none;
+}
+
+/* 햄버거 아이콘 디자인 */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffcc00;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* 네비게이션 메뉴 스타일 (모바일 드롭다운 형식) */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #071930;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-bottom: 1px solid rgba(255,204,0,0.2);
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s, color 0.2s;
+    font-weight: 600;
+}
+
+.nav-menu li a:hover {
+    background-color: #0c3275;
+    color: #ffcc00;
+}
+
+.menu-toggle:checked ~ .nav-menu {
+    max-height: 250px;
+}
+
+/* 메인 컨테이너 (반응형 그리드 적용) */
+.main-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    
+    /* 기본 모바일 환경: 1개씩 세로 정렬 */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 카드 섹션 공통 스타일 */
+.card-section {
+    width: 100%;
+    margin-bottom: 0; /* flex gap으로 대체 */
+}
+
+.content-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    border-top: 5px solid #074CA1;
+    height: 100%;
+}
+
+.content-card h2 {
+    font-size: 1.6rem;
+    color: #0c2340;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.content-card p {
+    color: #555;
+    font-size: 0.98rem;
+    margin-bottom: 20px;
+}
+
+/* 첫 번째 카드 내부 요소 */
+.emblem-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+    color: #0c2340;
+    font-weight: 900;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(255,204,0,0.4);
+}
+
+.card-image-placeholder {
+    background: linear-gradient(135deg, #073b94 0%, #041f54 100%);
+    color: #ffcc00;
+    padding: 45px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    border: 2px dashed rgba(255,204,0,0.5);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* 두 번째 카드 버튼 그룹 */
+.link-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-link {
+    display: block;
+    padding: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.samsung-btn {
+    background-color: #074CA1;
+    color: #fff;
+    border: 1px solid #053370;
+}
+
+.yanolja-btn {
+    background-color: #ff3478;
+    color: #fff;
+}
+
+.btn-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* 세 번째 카드 오시는 길 및 지도 이미지 스타일 */
+.map-image-wrap {
+    margin-bottom: 20px;
+    background: #f4f7fc;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #e1e8f0;
+}
+
+.location-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.directions-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.direction-item {
+    background-color: #f4f7fc;
+    padding: 16px;
+    border-radius: 10px;
+    border-left: 5px solid #ffcc00;
+}
+
+.direction-item h3 {
+    font-size: 1.05rem;
+    color: #0c2340;
+    margin-bottom: 6px;
+}
+
+.direction-item p {
+    margin-bottom: 0;
+    font-size: 0.92rem;
+    color: #444;
+}
+
+/* 중간 배너 섹션 */
+.banner-section {
+    width: 100%;
+}
+
+.banner-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.middle-banner-img {
+    width: 100%;
+    height: auto;
+    max-width: 420px;
+    max-height: 420px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+/* 네 번째 섹션: 폼 스타일 */
+.ticket-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: bold;
+    color: #0c2340;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #ccd5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fbfcfe;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #074CA1;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(7,76,161,0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #074CA1 0%, #042e66 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(7,76,161,0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* 푸터 */
+.footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaccff;
+    font-size: 0.85rem;
+    background-color: #051224;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ==================================================
+   미디어 쿼리: 태블릿 & PC 반응형 그리드 시스템
+   ================================================== */
+
+/* 태블릿 화면 (768px 이상 ~ 1023px 이하): 2개씩 배치 */
+@media (min-width: 768px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    /* 배너 섹션과 폼 섹션은 전체 너비(2칸 모두 차지)를 쓰도록 설정 */
+    .banner-section,
+    .form-section {
+        grid-column: span 2;
+    }
+
+    .link-button-group {
+        flex-direction: row;
+    }
+    
+    .btn-link {
+        flex: 1;
+    }
+}
+
+/* PC 화면 (1024px 이상): 3개씩 배치 */
+@media (min-width: 1024px) {
+    .main-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    /* 카드1, 카드2, 카드3이 각각 3열의 1칸씩 차지 */
+    #card1, #card2, #card3 {
+        grid-column: span 1;
+    }
+
+    /* 배너 섹션과 폼 섹션은 전체 3열을 모두 차지하도록 설정 */
+    .banner-section,
+    .form-section {
+        grid-column: span 3;
+    }
+}
