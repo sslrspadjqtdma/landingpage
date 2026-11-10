@@ -3,135 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 삼성 라이온즈 파크 직관 티켓팅 알림</title>
+    <meta name="theme-color" content="#f5f7fb">
+    <title>2026 삼성 라이온즈 티켓 예매 안내</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="page-shell">
+        <header class="header">
+            <div class="header-container">
+                <a class="header-logo-wrap" href="#home" aria-label="삼성 라이온즈 페이지 홈">
+                    <img src="images/header-logo.png" alt="삼성 라이온즈" class="header-img">
+                </a>
 
-    <!-- 헤더 및 햄버거 메뉴 영역 -->
-    <header class="header">
-        <div class="header-container">
-            <!-- 햄버거 메뉴 (체크박스 해킹 기법) -->
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            
-            <!-- 헤더 로고 이미지 영역 -->
-            <div class="header-logo-wrap">
-                <a href="#card1">
-                    <img src="images/logo1.png" alt="삼성 라이온즈 로고" class="header-img">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="hamburger" aria-label="메뉴 열기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <nav class="nav-menu" aria-label="주요 메뉴">
+                    <a href="#highlights">시즌 하이라이트</a>
+                    <a href="#tickets">예매 안내</a>
+                    <a href="#directions">오시는 길</a>
+                    <a href="#apply">알림 신청</a>
+                </nav>
+                <a class="header-cta" href="https://www.samsunglions.com" target="_blank" rel="noopener noreferrer">
+                    구단 홈페이지 <span aria-hidden="true">↗</span>
                 </a>
             </div>
+        </header>
 
-            <!-- 네비게이션 메뉴 -->
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#card1">우승 엠블럼</a></li>
-                    <li><a href="#card2">예매 링크</a></li>
-                    <li><a href="#card3">오시는 길</a></li>
-                    <li><a href="#apply">알림 신청</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- 메인 컨텐츠 영역 -->
-    <main class="main-container">
-        
-        <!-- 첫 번째 카드: 우승 엠블럼 및 홍보 -->
-        <section id="card1" class="card-section">
-            <article class="content-card">
-                <div class="emblem-badge">2026 POST SEASON</div>
-                <h2>삼성 라이온즈 파크</h2>
-                <p>라팍의 뜨거운 함성과 영광의 순간을 직관으로 함께하세요!</p>
-                <div class="card-image-placeholder">
-                    <span>⚾ LIONS V9 CHAMPIONSHIP ⚾</span>
-                </div>
-            </article>
-        </section>
-
-        <!-- 두 번째 카드: 공식 사이트 및 야놀자 링크 -->
-        <section id="card2" class="card-section">
-            <article class="content-card">
-                <h2>예매 및 공식 채널</h2>
-                <p>구단 공식 홈페이지와 티켓 예매처로 빠르게 이동합니다.</p>
-                <div class="link-button-group">
-                    <a href="https://www.samsunglions.com" target="_blank" class="btn-link samsung-btn">삼성 라이온즈 공식 사이트</a>
-                    <a href="https://www.yanolja.com" target="_blank" class="btn-link yanolja-btn">야놀자 티켓 바로가기</a>
-                </div>
-            </article>
-        </section>
-
-        <!-- 세 번째 카드: 오시는 길 (지도 이미지 추가) -->
-        <section id="card3" class="card-section">
-            <article class="content-card">
-                <h2>라이온즈 파크 오시는 길</h2>
-                
-                <!-- 첨부하신 지도 이미지 추가 -->
-                <div class="map-image-wrap">
-                    <img src="images/map.png" alt="삼성 라이온즈 파크 약도 및 위치" class="location-map-img">
-                </div>
-
-                <div class="directions-info">
-                    <div class="direction-item">
-                        <h3>🚇 대구 지하철 1호선</h3>
-                        <p><strong>대공원역</strong> 하차 후 5번 출구 도보 5분 거리</p>
-                    </div>
-                    <div class="direction-item">
-                        <h3>🚌 시내버스 정류장</h3>
-                        <p>삼성라이온즈파크 앞 하차<br>(간선: 309, 399, 449, 509, 609 등)</p>
+        <main>
+            <section class="hero-section" id="home">
+                <div class="hero-copy">
+                    <p class="hero-eyebrow">2026 SEASON · SAMSUNG LIONS</p>
+                    <h1>야구가 필요한 순간,<br>삼성 라이온즈와 함께</h1>
+                    <p class="hero-description">라팍의 뜨거운 응원과 우승의 순간을 현장에서 만나보세요.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#tickets">예매 정보 보기 <span aria-hidden="true">↗</span></a>
+                        <a class="button button-light" href="#directions">구장 안내</a>
                     </div>
                 </div>
-            </article>
-        </section>
+                <div class="hero-art">
+                    <div class="hero-image-frame">
+                        <img src="images/logo1.png" alt="2026 삼성 라이온즈 로고">
+                    </div>
+                    <p>2026 SEASON<br><strong>SAMSUNG LIONS</strong></p>
+                </div>
+                <span class="hero-orb hero-orb-one" aria-hidden="true"></span>
+                <span class="hero-orb hero-orb-two" aria-hidden="true"></span>
+            </section>
 
-        <!-- 중간 삽입 배너 섹션 -->
-        <section class="banner-section">
-            <div class="banner-card">
-                <img src="images/logo2.png" alt="2026 KOREAN SERIES CHAMPIONS V9 엠블럼" class="middle-banner-img">
-            </div>
-        </section>
+            <section class="feature-section" aria-labelledby="feature-title">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">PLAN YOUR GAME DAY</p>
+                        <h2 id="feature-title">경기 관람을 준비하세요</h2>
+                    </div>
+                    <p class="section-description">예매부터 구장까지, 필요한 정보를 한곳에서 확인하세요.</p>
+                </div>
 
-        <!-- 네 번째 섹션: 티케팅 알림 정보 입력 폼 -->
-        <section id="apply" class="card-section form-section">
-            <article class="content-card">
-                <h2>직관 자동 티케팅 알림 신청</h2>
-                <p>정보를 남겨주시면 예매 오픈일에 맞춰 예매 사이트 링크를 이메일로 보내드립니다.</p>
-                
-                <form class="ticket-form" onsubmit="event.preventDefault(); alert('티케팅 알림 신청이 완료되었습니다! 💙');">
+                <div class="cards-row">
+                    <article class="feature-card" id="highlights">
+                        <div class="feature-card-top">
+                            <span class="card-index">01</span>
+                            <span class="card-label">2026 POST SEASON</span>
+                        </div>
+                        <div class="feature-logo">
+                            <img src="images/logo1.png" alt="삼성 라이온즈 로고">
+                        </div>
+                        <h3>삼성 라이온즈 파크</h3>
+                        <p>라팍의 열기와 우승의 순간을 현장에서 함께하세요.</p>
+                        <a class="text-link" href="https://www.samsunglions.com" target="_blank" rel="noopener noreferrer">
+                            구단 소식 확인 <span aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="feature-card ticket-card" id="tickets">
+                        <div class="feature-card-top">
+                            <span class="card-index">02</span>
+                            <span class="card-label">TICKETS & LINKS</span>
+                        </div>
+                        <div class="card-symbol" aria-hidden="true">T</div>
+                        <h3>예매 및 공식 채널</h3>
+                        <p>구단 공식 홈페이지와 티켓 예매처로 빠르게 이동합니다.</p>
+                        <div class="link-button-group">
+                            <a class="button button-primary" href="https://www.samsunglions.com" target="_blank" rel="noopener noreferrer">삼성 라이온즈</a>
+                            <a class="button button-outline" href="https://www.yanolja.com" target="_blank" rel="noopener noreferrer">야놀자 티켓</a>
+                        </div>
+                    </article>
+
+                    <article class="feature-card directions-card" id="directions">
+                        <div class="feature-card-top">
+                            <span class="card-index">03</span>
+                            <span class="card-label">VISIT THE BALLPARK</span>
+                        </div>
+                        <img src="images/map.png" alt="삼성 라이온즈 파크 약도" class="location-map-img">
+                        <h3>라이온즈 파크 오시는 길</h3>
+                        <div class="directions-info">
+                            <div class="direction-item">
+                                <h4>대구 지하철 1호선</h4>
+                                <p><strong>대공원역</strong> 하차 후 5번 출구에서 도보 5분</p>
+                            </div>
+                            <div class="direction-item">
+                                <h4>시내버스</h4>
+                                <p>삼성라이온즈파크 앞 하차<br>간선 309, 399, 449, 509, 609 등</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="apply-section" id="apply">
+                <div class="apply-copy">
+                    <p class="section-kicker">STAY IN THE GAME</p>
+                    <h2>예매 알림 신청</h2>
+                    <p>이메일을 등록하시면 예매 일정과 예매처 정보를 안내해 드립니다.</p>
+                </div>
+                <form class="ticket-form" onsubmit="event.preventDefault(); alert('예매 알림 신청이 완료되었습니다.');">
                     <div class="form-group">
                         <label for="name">이름</label>
                         <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" required>
                     </div>
-
                     <div class="form-group">
                         <label for="email">이메일 주소</label>
                         <input type="email" id="email" name="email" placeholder="example@email.com" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="headcount">관람 인원 선택</label>
+                        <label for="headcount">관람 인원</label>
                         <select id="headcount" name="headcount">
-                            <option value="1">1명 (혼자 관람)</option>
-                            <option value="2">2명 (더블)</option>
-                            <option value="multi">다수인원 (3명 이상)</option>
+                            <option value="1">1명</option>
+                            <option value="2">2명</option>
+                            <option value="multi">3명 이상</option>
                         </select>
                     </div>
-
-                    <button type="submit" class="submit-btn">제출하기 / 완료하기</button>
+                    <button type="submit" class="button button-primary submit-btn">알림 신청</button>
                 </form>
-            </article>
-        </section>
+            </section>
+        </main>
 
-    </main>
-
-    <!-- 푸터 영역 -->
-    <footer class="footer">
-        <p>&copy; 2026 Samsung Lions Fan Page. All rights reserved. 💙</p>
-    </footer>
-
+        <footer class="footer">
+            <a href="#home" class="footer-brand">SAMSUNG LIONS</a>
+            <p>&copy; 2026 삼성 라이온즈 팬 페이지</p>
+        </footer>
+    </div>
 </body>
 </html>
