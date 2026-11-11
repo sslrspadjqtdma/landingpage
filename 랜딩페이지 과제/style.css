@@ -41,8 +41,13 @@ a {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.96);
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    border-bottom: 1px solid rgba(16, 37, 77, 0.06);
+    border-radius: 0 0 26px 26px;
+    background: #fff;
     backdrop-filter: blur(14px);
+    box-shadow: 0 10px 28px rgba(20, 35, 60, 0.1);
 }
 
 .header-container {
@@ -947,6 +952,11 @@ main {
     .page-shell {
         width: min(100% - 20px, 1600px);
         padding-bottom: 12px;
+    }
+
+    .header {
+        width: calc(100% + 20px);
+        margin-left: -10px;
     }
 
     .header-container {
