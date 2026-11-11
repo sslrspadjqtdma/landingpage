@@ -1,0 +1,291 @@
+.guide-header .header-container {
+    gap: 24px;
+}
+
+.guide-header .header-cta {
+    margin-left: auto;
+}
+
+.ticket-guide-main {
+    display: block;
+    width: min(100% - 32px, 1240px);
+    margin: 0 auto;
+    padding: 32px 0 0;
+}
+
+.guide-hero {
+    position: relative;
+    display: flex;
+    min-height: 310px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: clamp(30px, 6vw, 68px);
+    overflow: hidden;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 88% 18%, rgba(49, 196, 243, 0.25), transparent 28%),
+        linear-gradient(120deg, #10254d, #173e7c);
+    color: #fff;
+}
+
+.guide-hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.guide-hero .section-kicker {
+    color: #9dc8ff;
+}
+
+.guide-hero h1 {
+    margin-top: 12px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+}
+
+.guide-hero-copy > p:not(.section-kicker) {
+    max-width: 600px;
+    margin-top: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.guide-hero .button {
+    margin-top: 25px;
+}
+
+.guide-hero-mark {
+    display: flex;
+    width: 190px;
+    height: 190px;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    text-align: center;
+    transform: rotate(8deg);
+}
+
+.guide-hero-mark span {
+    color: #9dc8ff;
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0.16em;
+}
+
+.guide-hero-mark strong {
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.guide-steps {
+    margin-top: 66px;
+}
+
+.guide-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.guide-section-heading h2,
+.guide-notice h2 {
+    margin-top: 4px;
+    color: #17233a;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: 780;
+    letter-spacing: -0.04em;
+}
+
+.guide-section-heading > p {
+    max-width: 440px;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.guide-step-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.guide-step-card {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid rgba(222, 228, 238, 0.85);
+    border-radius: 24px;
+    background: #f1f3f7;
+}
+
+.guide-step-copy {
+    min-height: 140px;
+    padding: 2px 2px 18px;
+}
+
+.guide-step-number {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #e0eaff;
+    color: #1757ce;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.guide-step-card h3 {
+    margin-top: 10px;
+    color: #17233a;
+    font-size: 1.2rem;
+    font-weight: 760;
+    letter-spacing: -0.03em;
+    line-height: 1.4;
+}
+
+.guide-step-card p {
+    margin-top: 6px;
+    color: #59667b;
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+.guide-step-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #e1e6ef;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.guide-notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 24px;
+    padding: 28px 32px;
+    border: 1px solid #dfe8f8;
+    border-radius: 24px;
+    background: #eaf1ff;
+}
+
+.guide-notice h2 {
+    font-size: 1.25rem;
+}
+
+.guide-notice p:last-child {
+    max-width: 760px;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.guide-notice .button {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+    .guide-hero-mark {
+        width: 150px;
+        height: 150px;
+    }
+
+    .guide-step-card {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 680px) {
+    .guide-header .header-container {
+        gap: 10px;
+    }
+
+    .guide-header .header-cta {
+        margin-left: auto;
+        padding: 9px 13px;
+        font-size: 0.76rem;
+    }
+
+    .ticket-guide-main {
+        width: calc(100% - 16px);
+        padding-top: 12px;
+    }
+
+    .guide-hero {
+        min-height: 0;
+        padding: 30px 24px;
+        border-radius: 24px;
+    }
+
+    .guide-hero-mark {
+        display: none;
+    }
+
+    .guide-hero-copy > p:not(.section-kicker) {
+        font-size: 0.92rem;
+    }
+
+    .guide-steps {
+        margin-top: 44px;
+    }
+
+    .guide-section-heading {
+        display: block;
+        margin-bottom: 18px;
+    }
+
+    .guide-section-heading > p {
+        margin-top: 8px;
+        font-size: 0.86rem;
+    }
+
+    .guide-step-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .guide-step-card {
+        padding: 17px;
+        border-radius: 20px;
+    }
+
+    .guide-step-copy {
+        min-height: 0;
+        padding-bottom: 14px;
+    }
+
+    .guide-step-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .guide-step-card p {
+        font-size: 0.84rem;
+    }
+
+    .guide-notice {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 16px;
+        padding: 22px 19px;
+        border-radius: 20px;
+    }
+
+    .guide-notice h2 {
+        font-size: 1.15rem;
+    }
+}
