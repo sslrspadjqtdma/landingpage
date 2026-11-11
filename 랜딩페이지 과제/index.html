@@ -24,14 +24,25 @@
             />
           </a>
 
-          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+          <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="모바일 메뉴"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          />
           <label for="menu-toggle" class="hamburger" aria-label="메뉴 열기">
             <span></span>
             <span></span>
             <span></span>
           </label>
 
-          <nav class="nav-menu" aria-label="주요 메뉴">
+          <nav
+            class="nav-menu"
+            id="primary-navigation"
+            aria-label="주요 메뉴"
+          >
             <a
               href="https://www.youtube.com/watch?v=x0roIbfOvQA&amp;list=PLkXXwsF-ojWxRLoCPwugNkr9w2nGDt0zK"
               target="_blank"
@@ -435,6 +446,18 @@
       </footer>
     </div>
     <script>
+      const menuToggle = document.querySelector("#menu-toggle");
+      const menuLinks = document.querySelectorAll("#primary-navigation a");
+      menuToggle.addEventListener("change", () => {
+        menuToggle.setAttribute("aria-expanded", String(menuToggle.checked));
+      });
+      menuLinks.forEach((link) =>
+        link.addEventListener("click", () => {
+          menuToggle.checked = false;
+          menuToggle.setAttribute("aria-expanded", "false");
+        }),
+      );
+
       const mapChoiceDialog = document.querySelector("#map-choice-dialog");
       const mapChoiceTrigger = document.querySelector(".map-choice-trigger");
       const mapChoiceClose = document.querySelector("[data-close-map-dialog]");
