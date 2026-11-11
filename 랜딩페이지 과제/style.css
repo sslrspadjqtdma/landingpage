@@ -419,30 +419,21 @@ main {
 
 .official-social-links {
     display: grid;
-    width: 100%;
-    align-self: stretch;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: min(100%, 348px);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     justify-items: center;
-    gap: 12px;
+    gap: clamp(6px, 2vw, 12px);
+    align-self: center;
     margin: 28px 0 14px;
 }
 
 .social-link {
     display: grid;
-    width: 60px;
-    height: 60px;
-    grid-column: span 2;
+    width: min(100%, 60px);
+    aspect-ratio: 1;
     place-items: center;
-    border-radius: 17px;
+    border-radius: clamp(12px, 4vw, 17px);
     transition: transform 0.2s ease;
-}
-
-.social-link:nth-child(4) {
-    grid-column: 2 / span 2;
-}
-
-.social-link:nth-child(5) {
-    grid-column: 4 / span 2;
 }
 
 .social-link:hover {
