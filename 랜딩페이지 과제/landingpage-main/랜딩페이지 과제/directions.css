@@ -1,0 +1,352 @@
+.directions-header .header-container {
+    gap: 24px;
+}
+
+.directions-header .header-cta {
+    margin-left: auto;
+}
+
+.directions-header .directions-map-trigger {
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.directions-main {
+    display: block;
+    width: min(100% - 32px, 1240px);
+    margin: 0 auto;
+    padding: 28px 0 0;
+}
+
+.directions-hero {
+    position: relative;
+    display: flex;
+    min-height: 390px;
+    align-items: flex-end;
+    padding: clamp(28px, 5vw, 56px);
+    overflow: hidden;
+    border-radius: 30px;
+    background: #10254d;
+    color: #fff;
+}
+
+.directions-hero-image,
+.directions-hero-shade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.directions-hero-image {
+    object-fit: cover;
+    object-position: center 54%;
+}
+
+.directions-hero-shade {
+    background: linear-gradient(
+        90deg,
+        rgba(10, 26, 54, 0.84) 0%,
+        rgba(10, 26, 54, 0.54) 48%,
+        rgba(10, 26, 54, 0.08) 100%
+    );
+}
+
+.directions-hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.directions-hero .section-kicker {
+    color: #b7d8ff;
+}
+
+.directions-hero h1 {
+    margin-top: 9px;
+    font-size: clamp(2.1rem, 5vw, 3.5rem);
+    font-weight: 820;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+}
+
+.directions-hero-copy > p:not(.section-kicker) {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1rem;
+}
+
+.directions-hero .button {
+    margin-top: 22px;
+    border: 0;
+}
+
+.directions-transit,
+.subway-section {
+    margin-top: 58px;
+}
+
+.directions-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.directions-section-heading h2,
+.directions-map-cta h2 {
+    margin-top: 4px;
+    color: #17233a;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: 780;
+    letter-spacing: -0.04em;
+}
+
+.directions-section-heading > p {
+    max-width: 440px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.transit-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.transit-card {
+    display: flex;
+    min-height: 190px;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 26px;
+    border: 1px solid rgba(222, 228, 238, 0.85);
+    border-radius: 24px;
+    background: #f1f3f7;
+}
+
+.transit-card-icon {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 17px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.subway-icon {
+    background: #00a87a;
+}
+
+.bus-icon {
+    background: #1763e9;
+}
+
+.bus-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+}
+
+.transit-card-label {
+    color: #748198;
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+}
+
+.transit-card h3 {
+    margin-top: 3px;
+    color: #17233a;
+    font-size: 1.15rem;
+    font-weight: 760;
+}
+
+.transit-card-detail {
+    margin-top: 8px;
+    color: #59667b;
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+.transit-card-detail strong {
+    color: #203657;
+}
+
+.subway-map-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 30px;
+    padding: 26px;
+    border: 1px solid rgba(222, 228, 238, 0.85);
+    border-radius: 26px;
+    background: #fff;
+}
+
+.subway-map-card img {
+    display: block;
+    width: 100%;
+    max-height: 540px;
+    object-fit: contain;
+}
+
+.subway-map-card figcaption {
+    padding: 28px;
+    border-radius: 20px;
+    background: #f1f3f7;
+    color: #59667b;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.subway-map-card figcaption strong {
+    color: #008f68;
+}
+
+.directions-map-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 24px;
+    padding: 28px 32px;
+    border: 1px solid #dfe8f8;
+    border-radius: 24px;
+    background: #eaf1ff;
+}
+
+.directions-map-cta h2 {
+    font-size: 1.3rem;
+}
+
+.directions-map-cta p:last-child {
+    max-width: 760px;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.directions-map-cta .button {
+    flex: 0 0 auto;
+}
+
+.directions-map-trigger:focus-visible {
+    outline: 3px solid #31c4f3;
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .transit-card {
+        gap: 13px;
+        padding: 20px;
+    }
+
+    .subway-map-card {
+        gap: 20px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 680px) {
+    .directions-header .header-container {
+        gap: 10px;
+    }
+
+    .directions-header .header-cta {
+        margin-left: auto;
+        padding: 9px 13px;
+        font-size: 0.76rem;
+    }
+
+    .directions-main {
+        width: calc(100% - 16px);
+        padding-top: 12px;
+    }
+
+    .directions-hero {
+        min-height: 320px;
+        padding: 25px 22px;
+        border-radius: 24px;
+    }
+
+    .directions-hero-shade {
+        background: linear-gradient(
+            90deg,
+            rgba(10, 26, 54, 0.82),
+            rgba(10, 26, 54, 0.25)
+        );
+    }
+
+    .directions-hero h1 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+
+    .directions-transit,
+    .subway-section {
+        margin-top: 42px;
+    }
+
+    .directions-section-heading {
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .directions-section-heading > p {
+        margin-top: 7px;
+        font-size: 0.86rem;
+    }
+
+    .transit-card-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .transit-card {
+        min-height: 0;
+        padding: 19px;
+        border-radius: 20px;
+    }
+
+    .transit-card-detail {
+        font-size: 0.84rem;
+    }
+
+    .subway-map-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .subway-map-card img {
+        max-height: 500px;
+    }
+
+    .subway-map-card figcaption {
+        padding: 17px;
+        font-size: 0.9rem;
+    }
+
+    .directions-map-cta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 16px;
+        padding: 22px 19px;
+        border-radius: 20px;
+    }
+
+    .directions-map-cta h2 {
+        font-size: 1.15rem;
+    }
+}
