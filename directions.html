@@ -27,6 +27,35 @@
               class="header-img"
             />
           </a>
+
+          <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="모바일 메뉴"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          />
+          <label for="menu-toggle" class="hamburger" aria-label="메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <nav class="nav-menu" id="primary-navigation" aria-label="주요 메뉴">
+            <a
+              href="https://www.youtube.com/watch?v=x0roIbfOvQA&amp;list=PLkXXwsF-ojWxRLoCPwugNkr9w2nGDt0zK"
+              target="_blank"
+              rel="noopener noreferrer"
+              >시즌 하이라이트</a
+            >
+            <a href="ticket-guide.html">예매 안내</a>
+            <a href="directions.html" aria-current="page">오시는 길</a>
+            <a href="history.html">구단연혁</a>
+            <a href="notification.html">알림 신청</a>
+            <a href="shop.html">쇼핑</a>
+            <a href="community.html">커뮤니티</a>
+          </nav>
           <button
             class="header-cta directions-map-trigger"
             type="button"
@@ -35,6 +64,10 @@
           >
             라이온즈파크 가는 길 <span aria-hidden="true">↗</span>
           </button>
+          <div class="header-account-links" aria-label="계정 메뉴">
+            <a href="login.html">로그인</a>
+            <a class="header-signup-link" href="signup.html">회원가입</a>
+          </div>
         </div>
       </header>
 
@@ -176,9 +209,7 @@
                 checked
               />
               <span class="map-choice-icon naver-map-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48">
-                  <path d="M16 11h7l9 15V11h7v26h-7l-9-15v15h-7z" />
-                </svg>
+                <img src="images/icons/naver-map.png" alt="" />
               </span>
               <span class="map-choice-name">네이버 지도</span>
             </label>
@@ -191,10 +222,7 @@
                 value="kakao"
               />
               <span class="map-choice-icon kakao-map-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48">
-                  <path d="M24 5C14.6 5 8 11.4 8 19.4c0 6.1 4.1 11.4 10.1 13.4L24 43l5.9-10.2C35.9 30.8 40 25.5 40 19.4 40 11.4 33.4 5 24 5Z" />
-                  <path class="kakao-map-letter" d="M17 16h14v3h-5.5v9h-3v-9H17z" />
-                </svg>
+                <img src="images/icons/kakao-map.png" alt="" />
               </span>
               <span class="map-choice-name">카카오맵</span>
             </label>
@@ -215,37 +243,7 @@
         <p>&copy; 2026 삼성 라이온즈 팬 페이지</p>
       </footer>
     </div>
-    <script>
-      const mapChoiceDialog = document.querySelector("#map-choice-dialog");
-      const mapChoiceTriggers = document.querySelectorAll(
-        ".directions-map-trigger",
-      );
-      const mapChoiceClose = document.querySelector("[data-close-map-dialog]");
-      const mapChoiceRoute = document.querySelector(".map-choice-route");
-      const mapProviderInputs = document.querySelectorAll(
-        'input[name="map-provider"]',
-      );
-      const mapProviderLinks = {
-        naver:
-          "https://map.naver.com/p/search/%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC/place/19909612?c=15.00,0,0,0,dh&placePath=%2Fhome%3Fbk_query%3D%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC%26entry%3Dbmp%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202611111418%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC",
-        kakao: "https://place.map.kakao.com/12864272",
-      };
-
-      mapProviderInputs.forEach((input) =>
-        input.addEventListener("change", () => {
-          if (!input.checked) return;
-          mapChoiceRoute.href = mapProviderLinks[input.value];
-          mapChoiceRoute.setAttribute(
-            "aria-label",
-            `${input.value === "naver" ? "네이버 지도" : "카카오맵"} 길찾기`,
-          );
-        }),
-      );
-
-      mapChoiceTriggers.forEach((trigger) =>
-        trigger.addEventListener("click", () => mapChoiceDialog.showModal()),
-      );
-      mapChoiceClose.addEventListener("click", () => mapChoiceDialog.close());
-    </script>
+    <script src="directions.js" defer></script>
+    <script src="menu.js" defer></script>
   </body>
 </html>

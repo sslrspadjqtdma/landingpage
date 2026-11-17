@@ -1,0 +1,244 @@
+/* ===== 구단연혁 페이지 (hp- 접두사) — 타임라인·요약 배너는 history.css의 sl- 스타일 재사용 ===== */
+.hp-main {
+    --sl-blue: #074ca1;
+    --sl-dark: #042e66;
+    --sl-light: #ebf3fc;
+    --sl-text: #1a2436;
+    --sl-muted: #5b6678;
+    --sl-line: #cfdcee;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(56px, 7vw, 96px);
+    width: min(100%, 1240px);
+    margin: 0 auto;
+    padding-top: 16px;
+    word-break: keep-all;
+}
+
+/* 헤더 */
+.history-header .header-container {
+    gap: 24px;
+}
+
+.history-header .header-cta {
+    margin-left: auto;
+}
+
+/* 히어로 */
+.hp-hero {
+    position: relative;
+    display: flex;
+    min-height: clamp(360px, 56vh, 560px);
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 30px;
+    isolation: isolate;
+    color: #fff;
+}
+
+.hp-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.hp-hero-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        180deg,
+        rgba(4, 46, 102, 0.1) 0%,
+        rgba(4, 46, 102, 0.55) 55%,
+        rgba(4, 46, 102, 0.92) 100%
+    );
+}
+
+.hp-hero-copy {
+    padding: clamp(28px, 5vw, 64px);
+}
+
+.hp-hero-copy h1 {
+    margin-top: 16px;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+}
+
+.hp-hero-copy > p:last-child {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+}
+
+/* 히어로를 "역사와 기록들" 배너 이미지로: 이미지 비율 그대로(잘림 없음), 위에 겹치는 글자 없음 */
+.hp-hero.hp-hero-banner {
+    min-height: 0;
+    aspect-ratio: 1024 / 434;
+}
+
+.hp-hero-banner .hp-hero-image {
+    object-fit: contain;
+    object-position: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* 요약 배너 — 페이지에서는 위쪽 여백 없이 */
+.hp-main > .sl-summary {
+    margin-top: 0;
+}
+
+/* 연도 구간 메뉴 (스크롤해도 상단에 고정) */
+.hp-era-nav {
+    position: sticky;
+    top: 92px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    padding: 8px;
+    border: 1px solid rgba(207, 220, 238, 0.8);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 26px rgba(4, 46, 102, 0.08);
+    scrollbar-width: none;
+}
+
+.hp-era-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.hp-era-nav a {
+    flex: 0 0 auto;
+    padding: 9px 18px;
+    border-radius: 999px;
+    color: var(--sl-muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hp-era-nav a:hover {
+    color: var(--sl-blue);
+}
+
+.hp-era-nav a.is-active {
+    background: var(--sl-blue);
+    color: #fff;
+}
+
+.hp-era-nav a:focus-visible {
+    outline: 3px solid rgba(7, 76, 161, 0.35);
+    outline-offset: 2px;
+}
+
+/* 연도 구간 섹션 */
+.hp-main .hp-era {
+    scroll-margin-top: 170px;
+}
+
+.hp-era-header {
+    margin-bottom: clamp(28px, 4vw, 44px);
+    text-align: center;
+}
+
+.hp-era-range {
+    color: var(--sl-blue);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.hp-era-header h2 {
+    margin-top: 8px;
+    color: var(--sl-dark);
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+}
+
+/* 공식 홈페이지 안내 */
+.hp-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: clamp(24px, 4vw, 40px);
+    border: 1px solid #dfe8f8;
+    border-radius: 24px;
+    background: #fff;
+}
+
+.hp-cta h2 {
+    color: var(--sl-dark);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 780;
+    letter-spacing: -0.03em;
+}
+
+.hp-cta p:last-child {
+    margin-top: 6px;
+    color: var(--sl-muted);
+    font-size: 0.92rem;
+}
+
+.hp-cta .button {
+    flex: 0 0 auto;
+}
+
+/* 반응형 */
+@media (max-width: 680px) {
+    .hp-main {
+        gap: 48px;
+        padding-top: 10px;
+    }
+
+    .hp-hero {
+        min-height: 320px;
+        border-radius: 22px;
+    }
+
+    .hp-era-nav {
+        top: 76px;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .hp-era-nav a {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+
+    .hp-main .hp-era {
+        scroll-margin-top: 140px;
+    }
+
+    .hp-cta {
+        align-items: flex-start;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+}

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta
+      name="description"
+      content="삼성 라이온즈 팬들이 함께 이야기하고 응원하는 커뮤니티, 라팍 응원방입니다."
+    />
+    <title>커뮤니티 | 삼성 라이온즈</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="community.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="header community-header">
+        <div class="header-container">
+          <a
+            class="header-logo-wrap"
+            href="index.html"
+            aria-label="삼성 라이온즈 페이지 홈"
+          >
+            <img
+              src="images/header-logo.png"
+              alt="삼성 라이온즈"
+              class="header-img"
+            />
+          </a>
+
+          <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="모바일 메뉴"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          />
+          <label for="menu-toggle" class="hamburger" aria-label="메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <nav class="nav-menu" id="primary-navigation" aria-label="주요 메뉴">
+            <a
+              href="https://www.youtube.com/watch?v=x0roIbfOvQA&amp;list=PLkXXwsF-ojWxRLoCPwugNkr9w2nGDt0zK"
+              target="_blank"
+              rel="noopener noreferrer"
+              >시즌 하이라이트</a
+            >
+            <a href="ticket-guide.html">예매 안내</a>
+            <a href="directions.html">오시는 길</a>
+            <a href="history.html">구단연혁</a>
+            <a href="notification.html">알림 신청</a>
+            <a href="shop.html">쇼핑</a>
+            <a href="community.html" aria-current="page">커뮤니티</a>
+          </nav>
+          <a
+            class="header-cta"
+            href="https://www.samsunglions.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            구단 홈페이지 <span aria-hidden="true">↗</span>
+          </a>
+          <div class="header-account-links" aria-label="계정 메뉴">
+            <a href="login.html">로그인</a>
+            <a class="header-signup-link" href="signup.html">회원가입</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="community-main">
+        <!-- 커뮤니티 배너 이미지 (페이지 제목은 스크린리더용으로만 유지) -->
+        <section class="cm-banner-image" aria-labelledby="cm-title">
+          <h1 id="cm-title" class="sr-only">삼성 라이온즈 팬 커뮤니티</h1>
+          <img
+            src="images/community-banner.webp"
+            alt="SAMSUNG LIONS FAN COMMUNITY - 1985년부터 2026년 V9까지 한국시리즈 우승 엠블럼과 대구 라이온즈 파크 야경"
+          />
+        </section>
+
+        <div class="cm-layout">
+          <!-- 왼쪽: 커뮤니티 정보 + 게시판 메뉴 -->
+          <aside class="cm-sidebar" aria-label="커뮤니티 메뉴">
+            <section class="cm-card cm-info">
+              <div class="cm-info-top">
+                <span class="cm-avatar" aria-hidden="true">SL</span>
+                <div>
+                  <button type="button" class="cm-user-link" data-action="profile" data-user="라팍지기">
+                    라팍지기
+                  </button>
+                  <span class="cm-role">매니저</span>
+                  <p class="cm-info-meta">2026.03.01. 개설</p>
+                </div>
+              </div>
+              <dl class="cm-stats">
+                <div>
+                  <dt>멤버</dt>
+                  <dd>150명</dd>
+                </div>
+                <div>
+                  <dt>전체 글</dt>
+                  <dd id="cm-total-count">0</dd>
+                </div>
+              </dl>
+              <!-- 로그인했을 때만 보이는 내 정보 -->
+              <div class="cm-me" id="cm-me" hidden>
+                <span class="cm-avatar cm-avatar-sm" id="cm-me-avatar" aria-hidden="true"></span>
+                <button type="button" class="cm-user-link" id="cm-me-name" data-action="profile"></button>
+                <button type="button" class="cm-logout" id="cm-logout">로그아웃</button>
+              </div>
+              <!-- 로그인 전: 로그인하기만 / 로그인 후: 가입하기·글쓰기 -->
+              <a class="cm-btn cm-btn-primary" id="cm-login-link" href="login.html?redirect=community.html">
+                로그인하기
+              </a>
+              <button type="button" class="cm-btn cm-btn-primary" id="cm-join" data-action="join" hidden>
+                커뮤니티 가입하기
+              </button>
+              <button type="button" class="cm-btn cm-btn-outline" id="cm-side-write" data-action="write" hidden>
+                글쓰기
+              </button>
+            </section>
+
+            <form class="cm-card cm-search" role="search" id="cm-search">
+              <label class="sr-only" for="cm-search-input">게시글 검색</label>
+              <input
+                id="cm-search-input"
+                type="search"
+                placeholder="제목·내용 검색"
+                autocomplete="off"
+              />
+              <button type="submit">검색</button>
+            </form>
+
+            <nav class="cm-card cm-boards" aria-label="게시판">
+              <button type="button" class="cm-board-all is-active" data-board="all">
+                전체글보기
+              </button>
+              <div class="cm-board-groups" id="cm-board-groups"></div>
+            </nav>
+          </aside>
+
+          <!-- 오른쪽: 게시글 목록 -->
+          <section class="cm-card cm-board-panel" aria-labelledby="cm-board-title">
+            <div class="cm-board-head">
+              <div>
+                <h2 id="cm-board-title">전체글보기</h2>
+                <p class="cm-board-count"><strong id="cm-board-count">0</strong>개의 글</p>
+              </div>
+              <div class="cm-board-tools">
+                <label class="cm-check">
+                  <input type="checkbox" id="cm-hide-notice" />
+                  <span>공지 숨기기</span>
+                </label>
+                <button type="button" class="cm-btn cm-btn-primary cm-write" data-action="write">
+                  ✎ 글쓰기
+                </button>
+              </div>
+            </div>
+
+            <div class="cm-table" role="table" aria-label="게시글 목록">
+              <div class="cm-row cm-row-head" role="row">
+                <span role="columnheader">제목</span>
+                <span role="columnheader">작성자</span>
+                <span role="columnheader">작성일</span>
+                <span role="columnheader">조회수</span>
+              </div>
+              <div id="cm-rows" role="rowgroup"></div>
+            </div>
+            <p class="cm-empty" id="cm-empty" hidden>조건에 맞는 게시글이 없습니다.</p>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <a href="index.html" class="footer-brand">SAMSUNG LIONS</a>
+        <p>&copy; 2026 삼성 라이온즈 팬 페이지</p>
+      </footer>
+    </div>
+
+    <!-- 게시글 보기 -->
+    <dialog class="cm-dialog cm-post-dialog" id="cm-post-dialog" aria-labelledby="cm-post-title">
+      <div class="cm-post">
+        <div class="cm-post-head">
+          <p class="cm-post-board" id="cm-post-board"></p>
+          <div class="cm-post-head-actions">
+            <button type="button" class="cm-text-btn" id="cm-post-delete" hidden>삭제</button>
+            <button type="button" class="cm-close" data-close-dialog aria-label="게시글 닫기">
+              &times;
+            </button>
+          </div>
+        </div>
+        <h2 id="cm-post-title"></h2>
+        <div class="cm-post-meta">
+          <span class="cm-avatar cm-avatar-sm" id="cm-post-avatar" aria-hidden="true"></span>
+          <button type="button" class="cm-user-link" id="cm-post-author" data-action="profile"></button>
+          <span id="cm-post-date"></span>
+          <span id="cm-post-views"></span>
+        </div>
+        <div class="cm-post-body" id="cm-post-body"></div>
+        <div class="cm-post-actions">
+          <button type="button" class="cm-like" id="cm-like" data-action="like" aria-pressed="false">
+            <span aria-hidden="true">♥</span> 좋아요 <strong id="cm-post-likes">0</strong>
+          </button>
+          <span class="cm-comment-count">댓글 <strong id="cm-post-comment-count">0</strong></span>
+        </div>
+
+        <ul class="cm-comments" id="cm-comments"></ul>
+
+        <form class="cm-comment-form" id="cm-comment-form">
+          <label class="sr-only" for="cm-comment-input">댓글 입력</label>
+          <textarea
+            id="cm-comment-input"
+            rows="2"
+            maxlength="500"
+            placeholder="로그인 후 댓글을 남길 수 있어요."
+          ></textarea>
+          <button type="submit" class="cm-btn cm-btn-primary">등록</button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 글쓰기 -->
+    <dialog class="cm-dialog cm-write-dialog" id="cm-write-dialog" aria-labelledby="cm-write-heading">
+      <form class="cm-post cm-write-form" id="cm-write-form">
+        <div class="cm-post-head">
+          <h2 id="cm-write-heading">글쓰기</h2>
+          <button type="button" class="cm-close" data-close-dialog aria-label="글쓰기 닫기">
+            &times;
+          </button>
+        </div>
+        <label class="cm-field">
+          <span>게시판</span>
+          <select id="cm-write-board" required></select>
+        </label>
+        <label class="cm-field">
+          <span>제목</span>
+          <input id="cm-write-title" type="text" maxlength="80" placeholder="제목을 입력해 주세요" required />
+        </label>
+        <label class="cm-field">
+          <span>내용</span>
+          <textarea id="cm-write-body" rows="8" maxlength="2000" placeholder="내용을 입력해 주세요" required></textarea>
+        </label>
+        <div class="cm-confirm-actions">
+          <button type="button" class="cm-btn cm-btn-outline" data-close-dialog>취소</button>
+          <button type="submit" class="cm-btn cm-btn-primary">등록</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- 회원 프로필 -->
+    <dialog class="cm-dialog cm-profile-dialog" id="cm-profile-dialog" aria-labelledby="cm-profile-name">
+      <div class="cm-post cm-profile">
+        <div class="cm-post-head">
+          <p class="cm-post-board">프로필</p>
+          <button type="button" class="cm-close" data-close-dialog aria-label="프로필 닫기">
+            &times;
+          </button>
+        </div>
+        <div class="cm-profile-top">
+          <span class="cm-avatar" id="cm-profile-avatar" aria-hidden="true"></span>
+          <div>
+            <h2 id="cm-profile-name"></h2>
+            <span class="cm-role" id="cm-profile-role"></span>
+          </div>
+        </div>
+        <dl class="cm-stats">
+          <div>
+            <dt>작성글</dt>
+            <dd id="cm-profile-posts">0</dd>
+          </div>
+          <div>
+            <dt>댓글</dt>
+            <dd id="cm-profile-comments">0</dd>
+          </div>
+        </dl>
+        <p class="cm-profile-list-title">작성한 글</p>
+        <ul class="cm-profile-list" id="cm-profile-list"></ul>
+      </div>
+    </dialog>
+
+    <!-- 로그인 필요 안내 -->
+    <dialog class="cm-dialog cm-confirm" id="cm-login-dialog" aria-labelledby="cm-login-title">
+      <span class="cm-confirm-icon" aria-hidden="true">🔒</span>
+      <h2 id="cm-login-title">로그인을 하시겠습니까?</h2>
+      <p>글쓰기, 댓글·답글, 좋아요, 프로필 보기, 커뮤니티 가입은 로그인한 회원만 이용할 수 있어요.</p>
+      <div class="cm-confirm-actions">
+        <button type="button" class="cm-btn cm-btn-outline" data-close-dialog>취소</button>
+        <a class="cm-btn cm-btn-primary" href="login.html?redirect=community.html">로그인</a>
+      </div>
+    </dialog>
+
+    <script src="menu.js" defer></script>
+    <script src="community.js" defer></script>
+  </body>
+</html>

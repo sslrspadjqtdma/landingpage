@@ -27,6 +27,35 @@
               class="header-img"
             />
           </a>
+
+          <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="모바일 메뉴"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          />
+          <label for="menu-toggle" class="hamburger" aria-label="메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <nav class="nav-menu" id="primary-navigation" aria-label="주요 메뉴">
+            <a
+              href="https://www.youtube.com/watch?v=x0roIbfOvQA&amp;list=PLkXXwsF-ojWxRLoCPwugNkr9w2nGDt0zK"
+              target="_blank"
+              rel="noopener noreferrer"
+              >시즌 하이라이트</a
+            >
+            <a href="ticket-guide.html">예매 안내</a>
+            <a href="directions.html">오시는 길</a>
+            <a href="history.html">구단연혁</a>
+            <a href="notification.html" aria-current="page">알림 신청</a>
+            <a href="shop.html">쇼핑</a>
+            <a href="community.html">커뮤니티</a>
+          </nav>
           <a
             class="header-cta"
             href="https://www.samsunglions.com/"
@@ -35,6 +64,10 @@
           >
             구단 홈페이지 <span aria-hidden="true">↗</span>
           </a>
+          <div class="header-account-links" aria-label="계정 메뉴">
+            <a href="login.html">로그인</a>
+            <a class="header-signup-link" href="signup.html">회원가입</a>
+          </div>
         </div>
       </header>
 
@@ -162,17 +195,7 @@
         <p>&copy; 2026 삼성 라이온즈 팬 페이지</p>
       </footer>
     </div>
-    <script>
-      const notificationForm = document.querySelector("#notification-form");
-      const notificationStatus = document.querySelector(
-        "#notification-form-status",
-      );
-
-      notificationForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        notificationStatus.textContent =
-          "입력 내용을 확인했습니다. 실제 알림 신청은 서버 연동 후 이용할 수 있습니다.";
-      });
-    </script>
+    <script src="notification.js" defer></script>
+    <script src="menu.js" defer></script>
   </body>
 </html>

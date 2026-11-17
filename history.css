@@ -1,0 +1,474 @@
+/* ===== 삼성 라이온즈 연혁 섹션 (sl- 접두사로 기존 스타일과 분리) ===== */
+.sl-history-section {
+    --sl-blue: #074ca1;
+    --sl-dark: #042e66;
+    --sl-light: #ebf3fc;
+    --sl-bg: #f8fafc;
+    --sl-text: #1a2436;
+    --sl-muted: #5b6678;
+    --sl-line: #cfdcee;
+
+    padding: clamp(48px, 7vw, 96px) clamp(16px, 4vw, 56px);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--sl-text);
+    font-family: Pretendard, 'Noto Sans KR', sans-serif;
+    word-break: keep-all;
+}
+
+.sl-history-section *,
+.sl-history-section *::before,
+.sl-history-section *::after {
+    box-sizing: border-box;
+}
+
+/* 상단 헤더 */
+.sl-history-header {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sl-badge {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--sl-blue);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.sl-title {
+    margin-top: 18px;
+    color: var(--sl-dark);
+    font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+}
+
+.sl-subtitle {
+    margin-top: 12px;
+    color: var(--sl-muted);
+    font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+}
+
+/* 핵심 기록 요약 배너 */
+.sl-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 1080px;
+    margin: clamp(32px, 4vw, 48px) auto 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: linear-gradient(120deg, var(--sl-dark) 0%, var(--sl-blue) 100%);
+    box-shadow: 0 16px 36px rgba(4, 46, 102, 0.22);
+}
+
+.sl-summary-item {
+    padding: clamp(20px, 2.4vw, 30px) 16px;
+    text-align: center;
+}
+
+.sl-summary-item + .sl-summary-item {
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sl-summary-item dt {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.sl-summary-item dd {
+    margin-top: 6px;
+    color: #fff;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.sl-summary-item small {
+    font-size: 0.6em;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* 타임라인 스크롤 영역 — PC에서는 섹션 안에서 따로 스크롤 */
+.sl-timeline-scroll {
+    max-width: 1128px;
+    margin: clamp(40px, 5vw, 64px) auto 0;
+}
+
+@media (min-width: 1101px) {
+    .sl-timeline-scroll {
+        max-height: min(56vh, 560px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 40px 24px;
+        /* 위·아래 끝을 흐리게 → 카드가 스르륵 나타나고 사라지는 느낌 */
+        -webkit-mask-image: linear-gradient(transparent, #000 8%, #000 92%, transparent);
+        mask-image: linear-gradient(transparent, #000 8%, #000 92%, transparent);
+        /* 스크롤바 숨김 (스크롤은 그대로 동작) */
+        scrollbar-width: none;
+    }
+
+    .sl-timeline-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sl-timeline-scroll:focus-visible {
+        outline: 3px solid rgba(7, 76, 161, 0.35);
+        outline-offset: 4px;
+        border-radius: 16px;
+    }
+}
+
+/* 지그재그 타임라인 (데스크톱) */
+.sl-timeline {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.sl-timeline::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(var(--sl-line), var(--sl-blue) 50%, var(--sl-line));
+    content: "";
+    transform: translateX(-50%);
+}
+
+.sl-timeline-item {
+    position: relative;
+    width: 50%;
+    padding-right: 48px;
+}
+
+.sl-timeline-item + .sl-timeline-item {
+    margin-top: 28px;
+}
+
+/* 짝수 번째는 오른쪽 */
+.sl-timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding-right: 0;
+    padding-left: 48px;
+}
+
+/* 카드와 중앙 선을 잇는 가로 연결선 */
+.sl-timeline-item::before {
+    position: absolute;
+    top: 34px;
+    right: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--sl-line);
+    content: "";
+}
+
+.sl-timeline-item:nth-child(even)::before {
+    right: auto;
+    left: 0;
+}
+
+/* 원형 도트 (중앙 선 위) */
+.sl-dot {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    z-index: 1;
+    width: 16px;
+    height: 16px;
+    border: 3px solid var(--sl-line);
+    border-radius: 50%;
+    background: #fff;
+    transform: translate(50%, -50%);
+}
+
+.sl-timeline-item:nth-child(even) .sl-dot {
+    right: auto;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+/* 카드 — 라운드 박스 */
+.sl-card {
+    padding: 24px 26px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(4, 46, 102, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sl-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(4, 46, 102, 0.14);
+}
+
+/* 스크롤 등장 효과 — JS가 .sl-reveal-on을 붙였을 때만 동작 (JS 실패 시에도 내용은 보임) */
+.sl-reveal-on .sl-fade {
+    opacity: 0;
+    translate: 0 40px;
+    transition:
+        opacity 0.8s ease,
+        translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.sl-reveal-on .sl-summary.sl-fade {
+    transition-delay: 0.12s;
+}
+
+.sl-reveal-on .sl-timeline-scroll.sl-fade {
+    transition-delay: 0.24s;
+}
+
+.sl-reveal-on .sl-fade.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.sl-reveal-on .sl-timeline-item {
+    opacity: 0;
+    translate: -48px 0;
+    transition:
+        opacity 0.7s ease,
+        translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.sl-reveal-on .sl-timeline-item:nth-child(even) {
+    translate: 48px 0;
+}
+
+.sl-reveal-on .sl-timeline-item.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.sl-card-year {
+    color: var(--sl-blue);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.sl-card-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--sl-light);
+    color: var(--sl-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.sl-card-title {
+    margin-top: 12px;
+    color: var(--sl-text);
+    font-size: 1.12rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+}
+
+.sl-card-desc {
+    margin-top: 8px;
+    color: var(--sl-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.sl-card-list {
+    display: grid;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: var(--sl-light);
+    list-style: none;
+}
+
+.sl-card-list li {
+    position: relative;
+    padding-left: 14px;
+    color: var(--sl-text);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.sl-card-list li::before {
+    position: absolute;
+    top: 0.62em;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sl-blue);
+    content: "";
+}
+
+.sl-card-list strong {
+    margin-right: 4px;
+    color: var(--sl-dark);
+}
+
+/* 우승 시즌 강조 (도트·연결선) */
+.is-champion .sl-dot {
+    width: 22px;
+    height: 22px;
+    border-color: var(--sl-blue);
+    background: var(--sl-blue);
+    box-shadow: 0 0 0 5px rgba(7, 76, 161, 0.18);
+}
+
+.is-champion::before {
+    background: var(--sl-blue);
+}
+
+/* 태블릿 이하: 요약 배너 2열 */
+@media (max-width: 900px) {
+    .sl-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sl-summary-item:nth-child(3) {
+        border-left: 0;
+    }
+
+    .sl-summary-item:nth-child(n + 3) {
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+}
+
+/* 모바일·태블릿(1100px 이하): 박스 대신 "연도 | 내용" 목록 + 구분선 디자인
+   등장 효과는 위치 이동 없이 서서히 나타나게 → 항목끼리 겹치지 않음 */
+@media (max-width: 1100px) {
+    .sl-timeline::before,
+    .sl-timeline-item::before,
+    .sl-dot {
+        display: none;
+    }
+
+    .sl-timeline-item,
+    .sl-timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+        border-top: 1px solid var(--sl-line);
+    }
+
+    .sl-timeline-item + .sl-timeline-item {
+        margin-top: 0;
+    }
+
+    .sl-timeline-item:last-child {
+        border-bottom: 1px solid var(--sl-line);
+    }
+
+    /* 왼쪽 연도 칸 + 오른쪽 내용 칸 */
+    .sl-card {
+        display: grid;
+        grid-template-columns: clamp(110px, 18vw, 170px) minmax(0, 1fr);
+        column-gap: clamp(16px, 3vw, 32px);
+        align-items: start;
+        padding: clamp(22px, 3vw, 30px) 4px;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .sl-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .sl-card > * {
+        grid-column: 2;
+    }
+
+    .sl-card-year {
+        grid-column: 1;
+        grid-row: 1 / span 6;
+        font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    }
+
+    .sl-card-tag {
+        justify-self: start;
+        margin-top: 0;
+    }
+
+    /* 우승 시즌 표시: 연도 아래 작은 "우승" 배지 */
+    .is-champion .sl-card-year::after {
+        display: table;
+        margin-top: 8px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: var(--sl-blue);
+        color: #fff;
+        content: "우승";
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+    }
+
+    .sl-reveal-on .sl-timeline-item,
+    .sl-reveal-on .sl-timeline-item:nth-child(even) {
+        translate: none;
+    }
+}
+
+/* 모바일: 연도를 내용 위로 올려 한 줄로 */
+@media (max-width: 680px) {
+    .sl-card {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0;
+        padding: 22px 2px;
+    }
+
+    .sl-card > *,
+    .sl-card-year {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .sl-card-year {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+        font-size: 1.35rem;
+    }
+
+    .is-champion .sl-card-year::after {
+        margin-top: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sl-card {
+        transition: none;
+    }
+
+    .sl-card:hover {
+        transform: none;
+    }
+
+    .sl-reveal-on .sl-fade,
+    .sl-reveal-on .sl-timeline-item,
+    .sl-reveal-on .sl-timeline-item:nth-child(even) {
+        opacity: 1;
+        translate: none;
+        transition: none;
+    }
+}
