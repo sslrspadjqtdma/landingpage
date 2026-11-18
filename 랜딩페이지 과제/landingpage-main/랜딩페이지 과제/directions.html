@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta
+      name="description"
+      content="삼성 라이온즈 파크 주변 지하철역과 버스 정류장, 대구 도시철도 노선도를 확인하세요."
+    />
+    <title>오시는 길 | 삼성 라이온즈 파크</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="directions.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="header directions-header">
+        <div class="header-container">
+          <a
+            class="header-logo-wrap"
+            href="index.html"
+            aria-label="삼성 라이온즈 페이지 홈"
+          >
+            <img
+              src="images/header-logo.png"
+              alt="삼성 라이온즈"
+              class="header-img"
+            />
+          </a>
+          <button
+            class="header-cta directions-map-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="map-choice-dialog"
+          >
+            라이온즈파크 가는 길 <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="directions-main">
+        <section class="directions-hero" aria-labelledby="directions-title">
+          <img
+            class="directions-hero-image"
+            src="images/ballpark-aerial.png"
+            alt="푸른 숲 사이에 자리한 대구 삼성 라이온즈 파크 전경"
+          />
+          <div class="directions-hero-shade"></div>
+          <div class="directions-hero-copy">
+            <p class="section-kicker">VISIT SAMSUNG LIONS PARK</p>
+            <h1 id="directions-title">라이온즈 파크 오시는 길</h1>
+            <p>지하철과 버스로 편하게 찾아오세요.</p>
+            <button
+              class="button button-primary directions-map-trigger"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="map-choice-dialog"
+            >
+              라이온즈파크 가는 길 <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="directions-transit" aria-labelledby="transit-title">
+          <div class="directions-section-heading">
+            <div>
+              <p class="section-kicker">PUBLIC TRANSPORT</p>
+              <h2 id="transit-title">대중교통으로 찾아오기</h2>
+            </div>
+            <p>경기 당일에는 주변 교통 상황과 운행 정보를 확인해 주세요.</p>
+          </div>
+
+          <div class="transit-card-grid">
+            <article class="transit-card">
+              <div class="transit-card-icon subway-icon" aria-hidden="true">
+                2
+              </div>
+              <div>
+                <p class="transit-card-label">DAEGU METRO LINE 2</p>
+                <h3>대구 도시철도 2호선</h3>
+                <p class="transit-card-detail">
+                  <strong>대공원역</strong>에서 하차해 5번 출구로 나오면
+                  삼성 라이온즈 파크까지 도보 약 5분입니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="transit-card">
+              <div class="transit-card-icon bus-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path
+                    d="M8 5h16a3 3 0 0 1 3 3v15H5V8a3 3 0 0 1 3-3Zm-3 9h22M10 5V3m12 2V3M8 23v3m16-3v3M9 18h.1m13.8 0h.1"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p class="transit-card-label">LOCAL BUS</p>
+                <h3>시내버스</h3>
+                <p class="transit-card-detail">
+                  <strong>삼성라이온즈파크 앞</strong> 정류장에서 하차하세요.
+                  이용 가능한 간선 노선은
+                  <strong>309, 399, 449, 509, 609</strong> 등입니다.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="subway-section" aria-labelledby="subway-title">
+          <div class="directions-section-heading">
+            <div>
+              <p class="section-kicker">DAEGU METRO MAP</p>
+              <h2 id="subway-title">대구 지하철 노선도</h2>
+            </div>
+            <p>
+              2호선 대공원역에서 내리면 구장에 도착할 수 있어요.
+            </p>
+          </div>
+          <figure class="subway-map-card">
+            <img
+              src="images/daegu-subway-route.png"
+              alt="대구 지하철 노선도. 2호선 대공원역에 삼성라이온즈파크가 표시되어 있습니다."
+              loading="lazy"
+            />
+            <figcaption>
+              대구 도시철도 2호선 <strong>대공원역</strong>이 삼성
+              라이온즈 파크 인근 역입니다.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="directions-map-cta">
+          <div>
+            <p class="section-kicker">FIND YOUR ROUTE</p>
+            <h2>지도에서 길찾기를 시작해 보세요</h2>
+            <p>
+              네이버 지도와 카카오맵 중 편리한 지도를 선택해 경로를 확인할 수
+              있습니다.
+            </p>
+          </div>
+          <button
+            class="button button-primary directions-map-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="map-choice-dialog"
+          >
+            라이온즈파크 가는 길 <span aria-hidden="true">↗</span>
+          </button>
+        </section>
+      </main>
+
+      <dialog
+        class="map-choice-dialog"
+        id="map-choice-dialog"
+        aria-labelledby="map-choice-title"
+      >
+        <div class="map-choice-header">
+          <h2 id="map-choice-title">라이온즈파크 가는 길</h2>
+          <button
+            type="button"
+            class="map-choice-close"
+            aria-label="창 닫기"
+            data-close-map-dialog
+          >
+            &times;
+          </button>
+        </div>
+        <p>원하는 지도를 선택해 위치와 길찾기를 확인해 보세요.</p>
+        <div class="map-choice-links">
+          <div class="map-choice-item">
+            <label class="map-choice-option">
+              <input
+                type="radio"
+                name="map-provider"
+                value="naver"
+                checked
+              />
+              <span class="map-choice-icon naver-map-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M16 11h7l9 15V11h7v26h-7l-9-15v15h-7z" />
+                </svg>
+              </span>
+              <span class="map-choice-name">네이버 지도</span>
+            </label>
+          </div>
+          <div class="map-choice-item">
+            <label class="map-choice-option">
+              <input
+                type="radio"
+                name="map-provider"
+                value="kakao"
+              />
+              <span class="map-choice-icon kakao-map-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M24 5C14.6 5 8 11.4 8 19.4c0 6.1 4.1 11.4 10.1 13.4L24 43l5.9-10.2C35.9 30.8 40 25.5 40 19.4 40 11.4 33.4 5 24 5Z" />
+                  <path class="kakao-map-letter" d="M17 16h14v3h-5.5v9h-3v-9H17z" />
+                </svg>
+              </span>
+              <span class="map-choice-name">카카오맵</span>
+            </label>
+          </div>
+        </div>
+        <a
+          class="map-choice-route"
+          href="https://map.naver.com/p/search/%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC/place/19909612?c=15.00,0,0,0,dh&amp;placePath=%2Fhome%3Fbk_query%3D%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC%26entry%3Dbmp%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202611111418%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="네이버 지도 길찾기"
+          >길찾기</a
+        >
+      </dialog>
+
+      <footer class="footer">
+        <a href="index.html" class="footer-brand">SAMSUNG LIONS</a>
+        <p>&copy; 2026 삼성 라이온즈 팬 페이지</p>
+      </footer>
+    </div>
+    <script>
+      const mapChoiceDialog = document.querySelector("#map-choice-dialog");
+      const mapChoiceTriggers = document.querySelectorAll(
+        ".directions-map-trigger",
+      );
+      const mapChoiceClose = document.querySelector("[data-close-map-dialog]");
+      const mapChoiceRoute = document.querySelector(".map-choice-route");
+      const mapProviderInputs = document.querySelectorAll(
+        'input[name="map-provider"]',
+      );
+      const mapProviderLinks = {
+        naver:
+          "https://map.naver.com/p/search/%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC/place/19909612?c=15.00,0,0,0,dh&placePath=%2Fhome%3Fbk_query%3D%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC%26entry%3Dbmp%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202611111418%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%82%BC%EC%84%B1%20%EB%9D%BC%EC%9D%B4%EC%98%A8%EC%A6%88%20%ED%8C%8C%ED%81%AC",
+        kakao: "https://place.map.kakao.com/12864272",
+      };
+
+      mapProviderInputs.forEach((input) =>
+        input.addEventListener("change", () => {
+          if (!input.checked) return;
+          mapChoiceRoute.href = mapProviderLinks[input.value];
+          mapChoiceRoute.setAttribute(
+            "aria-label",
+            `${input.value === "naver" ? "네이버 지도" : "카카오맵"} 길찾기`,
+          );
+        }),
+      );
+
+      mapChoiceTriggers.forEach((trigger) =>
+        trigger.addEventListener("click", () => mapChoiceDialog.showModal()),
+      );
+      mapChoiceClose.addEventListener("click", () => mapChoiceDialog.close());
+    </script>
+  </body>
+</html>
