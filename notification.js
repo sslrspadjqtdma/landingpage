@@ -27,7 +27,8 @@
         icon: "success",
         title: "신청이 완료되었습니다.",
         confirmButtonText: "확인",
-        confirmButtonColor: "#0f2347",
+        buttonsStyling: false,
+        customClass: { popup: "mock-captcha-result", confirmButton: "mock-captcha-result-btn" },
       });
     }
   });

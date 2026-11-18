@@ -194,13 +194,42 @@ main.auth-main {
     text-align: center;
 }
 
+/* 한글이 단어 중간에서 끊기지 않게 */
+.auth-card {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 680px) {
+    /* iOS에서 입력칸을 누르면 화면이 확대되는 현상 방지 (16px 미만이면 확대됨) */
+    .auth-field input {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 480px) {
     .auth-header {
         width: calc(100% - 32px);
         padding: 18px 0;
     }
 
+    main.auth-main {
+        width: calc(100% - 24px);
+        margin-top: 8px;
+    }
+
     .auth-card {
+        padding: 26px 20px;
         border-radius: 20px;
+    }
+
+    .auth-form {
+        gap: 16px;
+        margin-top: 22px;
+    }
+
+    .auth-field input,
+    .auth-submit {
+        min-height: 48px;
     }
 }

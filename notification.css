@@ -436,6 +436,8 @@
     }
 
     .notification-dialog {
+        width: calc(100% - 20px);
+        max-height: calc(100svh - 24px);
         padding: 20px 16px;
         border-radius: 20px;
     }
@@ -444,4 +446,16 @@
         gap: 14px;
         padding: 16px 13px;
     }
+
+    /* iOS에서 입력칸을 누르면 화면이 확대되는 현상 방지 */
+    .notification-field input {
+        font-size: 16px;
+    }
+}
+
+/* 한글이 단어 중간에서 끊기지 않게 (동의 문구 등) */
+.notification-form,
+.notification-dialog {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
 }

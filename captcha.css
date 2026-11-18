@@ -1,6 +1,8 @@
 /* ===== 임시 reCAPTCHA 팝업 (SweetAlert2 + mock-captcha- 접두사) ===== */
 .swal2-popup.mock-captcha-popup {
-  width: min(400px, calc(100vw - 24px));
+  /* 화면 폭과 높이 모두에 맞춤 (가로로 눕힌 휴대폰에서도 사진 그리드가 한 화면에 들어오게) */
+  width: min(400px, calc(100vw - 24px), max(300px, calc(100svh - 210px)));
+  word-break: keep-all;
   padding: 8px;
   border-radius: 4px;
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
@@ -153,6 +155,106 @@
 
 .mock-captcha-cancel:hover {
   background: #f1f3f4;
+}
+
+/* ===== 완료 안내 창 (인증 완료 / 신청 완료 / 회원가입 완료) ===== */
+.swal2-popup.mock-captcha-result {
+  width: min(380px, calc(100vw - 32px));
+  padding: 28px 22px 24px;
+  border-radius: 22px;
+  box-shadow: 0 24px 70px rgba(17, 31, 55, 0.24);
+  font-family: inherit;
+  word-break: keep-all;
+}
+
+.mock-captcha-result .swal2-icon {
+  margin: 4px auto 14px;
+  transform: scale(0.8);
+}
+
+.mock-captcha-result .swal2-title {
+  padding: 0;
+  color: #14213b;
+  font-size: clamp(1.15rem, 4.8vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.mock-captcha-result .swal2-html-container {
+  margin: 8px 0 0;
+  padding: 0;
+  color: #627087;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.mock-captcha-result .swal2-actions {
+  width: 100%;
+  margin: 20px 0 0;
+}
+
+.mock-captcha-result-btn {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 13px;
+  background: #10254d;
+  color: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.mock-captcha-result-btn:hover {
+  background: #0a1d3e;
+}
+
+.mock-captcha-result-btn:focus-visible {
+  outline: 3px solid rgba(23, 99, 233, 0.35);
+  outline-offset: 3px;
+}
+
+/* ===== 작은 휴대폰 ===== */
+@media (max-width: 420px) {
+  .swal2-popup.mock-captcha-popup {
+    width: calc(100vw - 16px);
+    padding: 6px;
+  }
+
+  .mock-captcha-header {
+    padding: 16px 16px 14px;
+  }
+
+  .mock-captcha-keyword {
+    font-size: 1.4rem;
+  }
+
+  .mock-captcha-guide {
+    font-size: 0.9rem;
+  }
+
+  .mock-captcha-sub {
+    margin-top: 6px;
+    font-size: 0.75rem;
+  }
+
+  .mock-captcha-grid {
+    gap: 3px;
+    margin-top: 6px;
+  }
+
+  .mock-captcha-check {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mock-captcha-confirm,
+  .mock-captcha-cancel {
+    min-width: 76px;
+    padding: 11px 16px;
+  }
 }
 
 /* 필수 동의 체크를 안 했을 때 체크박스 아래에 뜨는 빨간 안내 문구 */

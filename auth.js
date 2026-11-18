@@ -77,7 +77,8 @@ document.querySelectorAll(".auth-form").forEach((form) => {
         title: "회원가입이 완료되었습니다",
         text: "로그인하시겠습니까?",
         confirmButtonText: "로그인하기",
-        confirmButtonColor: "#0f2347",
+        buttonsStyling: false,
+        customClass: { popup: "mock-captcha-result", confirmButton: "mock-captcha-result-btn" },
         allowOutsideClick: false,
         allowEscapeKey: false,
       }).then(() => window.location.assign(loginUrl));
