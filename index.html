@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="notification.css" />
     <link rel="stylesheet" href="history.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css"
+    />
+    <link rel="stylesheet" href="captcha.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"
+      defer
+    ></script>
+    <script src="captcha.js" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -80,77 +90,81 @@
       <main>
         <div class="hero-pin">
           <div
-          class="swiper hero-swiper"
-          aria-label="2026 삼성 라이온즈 메인 슬라이드"
-        >
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <section class="hero-section" id="home">
-                <!-- 배경 사진: 다른 히어로 사진과 같은 효과(전체 보임 + 양옆 흐린 반투명 배경) -->
-                <div
-                  class="hero-bg hero-photo-slide media-fill"
-                  style="--fill-image: url('images/daegu-park-night.png')"
-                  aria-hidden="true"
-                >
-                  <img src="images/daegu-park-night.png" alt="" />
-                </div>
-                <div class="hero-copy">
-                  <p class="hero-eyebrow">2026 SEASON · SAMSUNG LIONS</p>
-                  <h1>WE ARE THE LIONS,<br />삼성 라이온즈와 함께</h1>
-                  <p class="hero-description">
-                    라팍의 뜨거운 응원과 우승의 순간을 현장에서 만나보세요.
-                  </p>
-                  <div class="hero-actions">
-                    <a
-                      class="button button-primary"
-                      href="https://nol.yanolja.com/ticket/genre/sports"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >예매 정보 보기 <span aria-hidden="true"></span
-                    ></a>
-                    <a
-                      class="button button-light"
-                      href="https://www.samsunglions.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >구장 안내</a
-                    >
+            class="swiper hero-swiper"
+            aria-label="2026 삼성 라이온즈 메인 슬라이드"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <section class="hero-section" id="home">
+                  <!-- 배경 사진: 다른 히어로 사진과 같은 효과(전체 보임 + 양옆 흐린 반투명 배경) -->
+                  <div
+                    class="hero-bg hero-photo-slide media-fill"
+                    style="
+                      --fill-image: url(&quot;images/daegu-park-night.png&quot;);
+                    "
+                    aria-hidden="true"
+                  >
+                    <img src="images/daegu-park-night.png" alt="" />
                   </div>
-                </div>
-                <span class="hero-orb hero-orb-one" aria-hidden="true"></span>
-                <span class="hero-orb hero-orb-two" aria-hidden="true"></span>
-              </section>
+                  <div class="hero-copy">
+                    <p class="hero-eyebrow">2026 SEASON · SAMSUNG LIONS</p>
+                    <h1>WE ARE THE LIONS,<br />삼성 라이온즈와 함께</h1>
+                    <p class="hero-description">
+                      라팍의 뜨거운 응원과 우승의 순간을 현장에서 만나보세요.
+                    </p>
+                    <div class="hero-actions">
+                      <a
+                        class="button button-primary"
+                        href="https://nol.yanolja.com/ticket/genre/sports"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >예매 정보 보기 <span aria-hidden="true"></span
+                      ></a>
+                      <a
+                        class="button button-light"
+                        href="https://www.samsunglions.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >구장 안내</a
+                      >
+                    </div>
+                  </div>
+                  <span class="hero-orb hero-orb-one" aria-hidden="true"></span>
+                  <span class="hero-orb hero-orb-two" aria-hidden="true"></span>
+                </section>
+              </div>
+              <div
+                class="swiper-slide hero-photo-slide media-fill"
+                style="--fill-image: url(&quot;images/선수사진.png&quot;)"
+              >
+                <img
+                  src="images/선수사진.png"
+                  alt="2026 한국시리즈 우승 삼성 라이온즈 선수단"
+                />
+              </div>
+              <div
+                class="swiper-slide hero-photo-slide media-fill"
+                style="--fill-image: url(&quot;images/한시우승.png&quot;)"
+              >
+                <img
+                  src="images/한시우승.png"
+                  alt="2026 KBO 한국시리즈 마운드에 모인 삼성 라이온즈 선수들"
+                />
+              </div>
+              <div
+                class="swiper-slide hero-photo-slide media-fill"
+                style="
+                  --fill-image: url(&quot;images/ballpark-sunset.png&quot;);
+                "
+              >
+                <img
+                  src="images/ballpark-sunset.png"
+                  alt="노을 진 하늘 아래 관중으로 가득 찬 삼성 라이온즈 파크"
+                />
+              </div>
             </div>
-            <div
-              class="swiper-slide hero-photo-slide media-fill"
-              style="--fill-image: url('images/선수사진.png')"
-            >
-              <img
-                src="images/선수사진.png"
-                alt="2026 한국시리즈 우승 삼성 라이온즈 선수단"
-              />
-            </div>
-            <div
-              class="swiper-slide hero-photo-slide media-fill"
-              style="--fill-image: url('images/한시우승.png')"
-            >
-              <img
-                src="images/한시우승.png"
-                alt="2026 KBO 한국시리즈 마운드에 모인 삼성 라이온즈 선수들"
-              />
-            </div>
-            <div
-              class="swiper-slide hero-photo-slide media-fill"
-              style="--fill-image: url('images/ballpark-sunset.png')"
-            >
-              <img
-                src="images/ballpark-sunset.png"
-                alt="노을 진 하늘 아래 관중으로 가득 찬 삼성 라이온즈 파크"
-              />
-            </div>
+            <div class="swiper-pagination"></div>
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
         </div>
 
         <section class="feature-section" aria-labelledby="feature-title">
@@ -268,7 +282,7 @@
                 </div>
                 <div
                   class="location-map media-fill"
-                  style="--fill-image: url('images/map.png')"
+                  style="--fill-image: url(&quot;images/map.png&quot;)"
                 >
                   <img
                     src="images/map.png"
@@ -314,7 +328,7 @@
                 <h3>베리즈 라이온즈 팀스토어</h3>
                 <a
                   class="goods-banner media-fill"
-                  style="--fill-image: url('images/goods-shop.png')"
+                  style="--fill-image: url(&quot;images/goods-shop.png&quot;)"
                   href="https://shop.berriz.in/ko/samsunglions?t_ch=internal&amp;t_obj=260220_SL_H&amp;t_src=infomail"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -432,137 +446,149 @@
             </p>
           </header>
 
-
           <div
             class="sl-timeline-scroll sl-fade"
             tabindex="0"
             aria-label="연혁 타임라인 (스크롤해서 보기)"
           >
-          <ol class="sl-timeline">
-            <li class="sl-timeline-item">
-              <span class="sl-dot" aria-hidden="true"></span>
-              <article class="sl-card">
-                <p class="sl-card-year">1982</p>
-                <p class="sl-card-tag">구단 개설</p>
-                <h3 class="sl-card-title">삼성 라이온즈 창단 및 KBO 원년 개막</h3>
-                <p class="sl-card-desc">
-                  1982년 2월 3일 대구 연고 공식 창단. 창단 이래 팀명·연고지·모기업이
-                  한 번도 바뀌지 않은 명문 구단의 시작과 원년 한국시리즈 준우승 기록.
-                </p>
-              </article>
-            </li>
+            <ol class="sl-timeline">
+              <li class="sl-timeline-item">
+                <span class="sl-dot" aria-hidden="true"></span>
+                <article class="sl-card">
+                  <p class="sl-card-year">1982</p>
+                  <p class="sl-card-tag">구단 개설</p>
+                  <h3 class="sl-card-title">
+                    삼성 라이온즈 창단 및 KBO 원년 개막
+                  </h3>
+                  <p class="sl-card-desc">
+                    1982년 2월 3일 대구 연고 공식 창단. 창단 이래
+                    팀명·연고지·모기업이 한 번도 바뀌지 않은 명문 구단의 시작과
+                    원년 한국시리즈 준우승 기록.
+                  </p>
+                </article>
+              </li>
 
-            <li class="sl-timeline-item is-champion">
-              <span class="sl-dot" aria-hidden="true"></span>
-              <article class="sl-card">
-                <p class="sl-card-year">1985</p>
-                <p class="sl-card-tag">V1 · 사상 최초 전·후기 통합우승</p>
-                <h3 class="sl-card-title">한국시리즈 없는 완벽한 첫 우승</h3>
-                <p class="sl-card-desc">
-                  김일융·김시진 원투펀치와 이만수·장효조 타선으로 전·후기 리그 모두
-                  1위를 석권, 한국시리즈 없이 유일무이한 통합우승(V1) 달성.
-                </p>
-              </article>
-            </li>
+              <li class="sl-timeline-item is-champion">
+                <span class="sl-dot" aria-hidden="true"></span>
+                <article class="sl-card">
+                  <p class="sl-card-year">1985</p>
+                  <p class="sl-card-tag">V1 · 사상 최초 전·후기 통합우승</p>
+                  <h3 class="sl-card-title">한국시리즈 없는 완벽한 첫 우승</h3>
+                  <p class="sl-card-desc">
+                    김일융·김시진 원투펀치와 이만수·장효조 타선으로 전·후기 리그
+                    모두 1위를 석권, 한국시리즈 없이 유일무이한 통합우승(V1)
+                    달성.
+                  </p>
+                </article>
+              </li>
 
-            <li class="sl-timeline-item is-champion">
-              <span class="sl-dot" aria-hidden="true"></span>
-              <article class="sl-card">
-                <p class="sl-card-year">2002</p>
-                <p class="sl-card-tag">V2 · 첫 한국시리즈 제패</p>
-                <h3 class="sl-card-title">
-                  '이·마·양' 트리오와 20년 한을 푼 한국시리즈 우승
-                </h3>
-                <p class="sl-card-desc">
-                  김응용 감독 부임 및 이승엽·마해영·양준혁 중심타선 구축. LG와의 KS
-                  6차전 9회말 이승엽 동점 3점포와 마해영 백투백 끝내기 홈런으로 첫
-                  한국시리즈 우승.
-                </p>
-              </article>
-            </li>
+              <li class="sl-timeline-item is-champion">
+                <span class="sl-dot" aria-hidden="true"></span>
+                <article class="sl-card">
+                  <p class="sl-card-year">2002</p>
+                  <p class="sl-card-tag">V2 · 첫 한국시리즈 제패</p>
+                  <h3 class="sl-card-title">
+                    '이·마·양' 트리오와 20년 한을 푼 한국시리즈 우승
+                  </h3>
+                  <p class="sl-card-desc">
+                    김응용 감독 부임 및 이승엽·마해영·양준혁 중심타선 구축.
+                    LG와의 KS 6차전 9회말 이승엽 동점 3점포와 마해영 백투백
+                    끝내기 홈런으로 첫 한국시리즈 우승.
+                  </p>
+                </article>
+              </li>
 
-            <li class="sl-timeline-item is-champion">
-              <span class="sl-dot" aria-hidden="true"></span>
-              <article class="sl-card">
-                <p class="sl-card-year">2005 — 2006</p>
-                <p class="sl-card-tag">V3 · V4 · 창단 첫 2연패</p>
-                <h3 class="sl-card-title">'지키는 야구'와 끝판대장 오승환의 등장</h3>
-                <p class="sl-card-desc">
-                  선동열 감독 부임과 신인 오승환의 활약으로 2005년 두산전 4전 전승
-                  스윕 우승, 2006년 한화를 꺾고 창단 첫 한국시리즈 2연패 달성.
-                </p>
-              </article>
-            </li>
+              <li class="sl-timeline-item is-champion">
+                <span class="sl-dot" aria-hidden="true"></span>
+                <article class="sl-card">
+                  <p class="sl-card-year">2005 — 2006</p>
+                  <p class="sl-card-tag">V3 · V4 · 창단 첫 2연패</p>
+                  <h3 class="sl-card-title">
+                    '지키는 야구'와 끝판대장 오승환의 등장
+                  </h3>
+                  <p class="sl-card-desc">
+                    선동열 감독 부임과 신인 오승환의 활약으로 2005년 두산전 4전
+                    전승 스윕 우승, 2006년 한화를 꺾고 창단 첫 한국시리즈 2연패
+                    달성.
+                  </p>
+                </article>
+              </li>
 
-            <li class="sl-timeline-item is-champion">
-              <span class="sl-dot" aria-hidden="true"></span>
-              <article class="sl-card">
-                <p class="sl-card-year">2011 — 2014</p>
-                <p class="sl-card-tag">V5 · V6 · V7 · V8 · KBO 최초 통합 4연패</p>
-                <h3 class="sl-card-title">
-                  삼성 왕조의 시대, 한국 프로야구 역사를 새로 쓰다
-                </h3>
-                <p class="sl-card-desc">
-                  류중일 감독 체제 아래 공격 야구와 철벽 불펜(JOKKA 라인)으로 KBO
-                  최초 통합 4연패 달성.
-                </p>
-                <ul class="sl-card-list">
-                  <li>
-                    <strong>2011 (V5)</strong> 한국 팀 최초 아시아시리즈
-                    제패(트레블 달성)
-                  </li>
-                  <li>
-                    <strong>2012 (V6)</strong> 이승엽 복귀와 함께 SK를 꺾고 통합
-                    2연패
-                  </li>
-                  <li>
-                    <strong>2013 (V7)</strong> 1승 3패 열세를 뒤집은
-                    '패패승패승승승' 대역전 우승
-                  </li>
-                  <li>
-                    <strong>2014 (V8)</strong> 팀 타율 0.301 '메가 라이온즈포'로
-                    통합 4연패 위업
-                  </li>
-                </ul>
-              </article>
-            </li>
+              <li class="sl-timeline-item is-champion">
+                <span class="sl-dot" aria-hidden="true"></span>
+                <article class="sl-card">
+                  <p class="sl-card-year">2011 — 2014</p>
+                  <p class="sl-card-tag">
+                    V5 · V6 · V7 · V8 · KBO 최초 통합 4연패
+                  </p>
+                  <h3 class="sl-card-title">
+                    삼성 왕조의 시대, 한국 프로야구 역사를 새로 쓰다
+                  </h3>
+                  <p class="sl-card-desc">
+                    류중일 감독 체제 아래 공격 야구와 철벽 불펜(JOKKA 라인)으로
+                    KBO 최초 통합 4연패 달성.
+                  </p>
+                  <ul class="sl-card-list">
+                    <li>
+                      <strong>2011 (V5)</strong> 한국 팀 최초 아시아시리즈
+                      제패(트레블 달성)
+                    </li>
+                    <li>
+                      <strong>2012 (V6)</strong> 이승엽 복귀와 함께 SK를 꺾고
+                      통합 2연패
+                    </li>
+                    <li>
+                      <strong>2013 (V7)</strong> 1승 3패 열세를 뒤집은
+                      '패패승패승승승' 대역전 우승
+                    </li>
+                    <li>
+                      <strong>2014 (V8)</strong> 팀 타율 0.301 '메가
+                      라이온즈포'로 통합 4연패 위업
+                    </li>
+                  </ul>
+                </article>
+              </li>
 
-            <li class="sl-timeline-item">
-              <span class="sl-dot" aria-hidden="true"></span>
-              <article class="sl-card">
-                <p class="sl-card-year">2015</p>
-                <p class="sl-card-tag">KBO 최초 정규리그 5연패</p>
-                <h3 class="sl-card-title">
-                  왕조의 정점을 찍은 페넌트레이스 5년 연속 제패
-                </h3>
-                <p class="sl-card-desc">
-                  KBO 최초 선발 투수 5명 전원 10승 달성 및 팀 타율 0.302 기록으로
-                  정규리그 5연패 달성.
-                </p>
-              </article>
-            </li>
+              <li class="sl-timeline-item">
+                <span class="sl-dot" aria-hidden="true"></span>
+                <article class="sl-card">
+                  <p class="sl-card-year">2015</p>
+                  <p class="sl-card-tag">KBO 최초 정규리그 5연패</p>
+                  <h3 class="sl-card-title">
+                    왕조의 정점을 찍은 페넌트레이스 5년 연속 제패
+                  </h3>
+                  <p class="sl-card-desc">
+                    KBO 최초 선발 투수 5명 전원 10승 달성 및 팀 타율 0.302
+                    기록으로 정규리그 5연패 달성.
+                  </p>
+                </article>
+              </li>
 
-            <li class="sl-timeline-item is-champion">
-              <span class="sl-dot" aria-hidden="true"></span>
-              <article class="sl-card">
-                <p class="sl-card-year">2026</p>
-                <p class="sl-card-tag">V9 · 12년 만의 한국시리즈 우승</p>
-                <h3 class="sl-card-title">
-                  사자 군단의 포효, 12년 만에 되찾은 정상 'V9'
-                </h3>
-                <p class="sl-card-desc">
-                  2026년 11월 8일, 대구 삼성라이온즈파크에서 열린 한국시리즈
-                  5차전에서 KT 위즈를 꺾고 시리즈 전적 4승 1패로 통산 아홉
-                  번째(V9) 우승 달성.
-                </p>
-                <ul class="sl-card-list">
-                  <li>시리즈 MVP 구자욱의 맹활약과 에이스 원태인의 역투</li>
-                  <li>베테랑 포수 강민호, 데뷔 23년 만의 첫 우승 반지 획득</li>
-                  <li>선수와 감독으로 우승을 모두 경험한 박진만 감독의 리더십</li>
-                </ul>
-              </article>
-            </li>
-          </ol>
+              <li class="sl-timeline-item is-champion">
+                <span class="sl-dot" aria-hidden="true"></span>
+                <article class="sl-card">
+                  <p class="sl-card-year">2026</p>
+                  <p class="sl-card-tag">V9 · 12년 만의 한국시리즈 우승</p>
+                  <h3 class="sl-card-title">
+                    사자 군단의 포효, 12년 만에 되찾은 정상 'V9'
+                  </h3>
+                  <p class="sl-card-desc">
+                    2026년 11월 8일, 대구 삼성라이온즈파크에서 열린 한국시리즈
+                    5차전에서 KT 위즈를 꺾고 시리즈 전적 4승 1패로 통산 아홉
+                    번째(V9) 우승 달성.
+                  </p>
+                  <ul class="sl-card-list">
+                    <li>시리즈 MVP 구자욱의 맹활약과 에이스 원태인의 역투</li>
+                    <li>
+                      베테랑 포수 강민호, 데뷔 23년 만의 첫 우승 반지 획득
+                    </li>
+                    <li>
+                      선수와 감독으로 우승을 모두 경험한 박진만 감독의 리더십
+                    </li>
+                  </ul>
+                </article>
+              </li>
+            </ol>
           </div>
         </section>
 
