@@ -169,6 +169,13 @@ const CAPTCHA_BUTTON_LABELS = ["로그인", "회원가입", "알림 신청하기
   // 인증을 통과한 바로 그 제출 1번만 그대로 보내기 위한 표시
   let allowNextSubmit = false;
   let busy = false;
+  // 캡차를 한 번 통과한 폼은 (새로고침 전까지) 다시 묻지 않고 바로 제출
+  const passedForms = new WeakSet();
+
+  const submitWithoutCaptcha = (button) => {
+    allowNextSubmit = true;
+    button.form.requestSubmit(button);
+  };
 
   // ===== 필수 동의 체크 확인 (체크 안 하면 캡차 대신 빨간 안내 문구) =====
   const CONSENT_MESSAGE = "필수 동의 항목에 체크해 주세요.";
@@ -224,8 +231,8 @@ const CAPTCHA_BUTTON_LABELS = ["로그인", "회원가입", "알림 신청하기
 
     if (wasModal) dialog.showModal();
     if (passed) {
-      allowNextSubmit = true;
-      button.form.requestSubmit(button); // 원래 제출 동작 (로그인 처리, 신청 완료 문구 등)
+      passedForms.add(button.form);
+      submitWithoutCaptcha(button); // 원래 제출 동작 (로그인 처리, 신청 완료 문구 등)
     }
   };
 
@@ -243,6 +250,10 @@ const CAPTCHA_BUTTON_LABELS = ["로그인", "회원가입", "알림 신청하기
       event.preventDefault();
       event.stopImmediatePropagation();
       if (!checkForm(el.form)) return;
+      if (passedForms.has(el.form)) {
+        submitWithoutCaptcha(el); // 이미 인증 통과 → 캡차 없이 바로 신청 완료
+        return;
+      }
       runGate(el);
     },
     true,
@@ -257,6 +268,7 @@ const CAPTCHA_BUTTON_LABELS = ["로그인", "회원가입", "알림 신청하기
         return;
       }
       const form = event.target;
+      if (passedForms.has(form)) return; // 이미 인증 통과한 폼
       const button = isGatedSubmit(event.submitter)
         ? event.submitter
         : [...form.querySelectorAll('button[type="submit"]')].find(isGatedSubmit);

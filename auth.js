@@ -59,11 +59,35 @@ document.querySelectorAll(".auth-form").forEach((form) => {
     if (!form.reportValidity()) return;
 
     const isSignup = form.dataset.authForm === "signup";
+    const submitButton = form.querySelector('[type="submit"]');
+
+    // 회원가입: 메인으로 자동 이동하지 않고 "로그인하시겠습니까?" 창 → 로그인하기 클릭 시 로그인 페이지로
+    if (isSignup) {
+      const loginUrl = redirectTo ? `login.html?redirect=${encodeURIComponent(redirectTo)}` : "login.html";
+      status.textContent = "회원가입이 완료되었습니다.";
+      submitButton.disabled = true;
+
+      if (typeof Swal === "undefined") {
+        if (window.confirm("회원가입이 완료되었습니다.\n로그인하시겠습니까?")) window.location.assign(loginUrl);
+        submitButton.disabled = false;
+        return;
+      }
+      Swal.fire({
+        icon: "success",
+        title: "회원가입이 완료되었습니다",
+        text: "로그인하시겠습니까?",
+        confirmButtonText: "로그인하기",
+        confirmButtonColor: "#0f2347",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      }).then(() => window.location.assign(loginUrl));
+      return;
+    }
 
     // 로그인 상태를 이 브라우저에 저장 (인증 서버가 없는 시안이라 이메일·닉네임만, 비밀번호는 저장하지 않음)
     const email = form.querySelector('[name="email"]')?.value.trim() || "";
     const name = form.querySelector('[name="name"]')?.value.trim() || "";
-    const nickname = (isSignup && name ? name : email.split("@")[0]).slice(0, 20) || "라이온즈팬";
+    const nickname = (name || email.split("@")[0]).slice(0, 20) || "라이온즈팬";
     try {
       localStorage.setItem("lionsCommunityUser", JSON.stringify({ email, nickname }));
     } catch {
@@ -72,8 +96,8 @@ document.querySelectorAll(".auth-form").forEach((form) => {
 
     const target = redirectTo || "index.html";
     const targetName = redirectTo ? redirectName : "메인 페이지";
-    status.textContent = `${nickname}님, ${isSignup ? "가입을 환영합니다" : "로그인되었습니다"}! 잠시 후 ${targetName}로 이동합니다.`;
-    form.querySelector('[type="submit"]').disabled = true;
+    status.textContent = `${nickname}님, 로그인되었습니다! 잠시 후 ${targetName}로 이동합니다.`;
+    submitButton.disabled = true;
     setTimeout(() => window.location.assign(target), 1200);
   });
 });
