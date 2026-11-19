@@ -83,7 +83,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            구단 홈페이지 <span aria-hidden="true">↗</span>
+            구단 홈페이지 <span aria-hidden="true"></span>
           </a>
           <div class="header-account-links" aria-label="계정 메뉴">
             <a href="login.html">로그인</a>
@@ -149,10 +149,10 @@
               </div>
               <div
                 class="swiper-slide hero-photo-slide media-fill"
-                style="--fill-image: url(&quot;images/한시우승.png&quot;)"
+                style="--fill-image: url(&quot;images/한시우승.png?v=2026111902&quot;)"
               >
                 <img
-                  src="images/한시우승.png"
+                  src="images/한시우승.png?v=2026111902"
                   alt="2026 KBO 한국시리즈 마운드에 모인 삼성 라이온즈 선수들"
                 />
               </div>
@@ -657,7 +657,11 @@
         </dialog>
 
         <!-- 이미지 크게 보기 (약도 클릭 시) -->
-        <dialog class="image-lightbox" id="image-lightbox" aria-label="이미지 크게 보기">
+        <dialog
+          class="image-lightbox"
+          id="image-lightbox"
+          aria-label="이미지 크게 보기"
+        >
           <button
             type="button"
             class="image-lightbox-close"
@@ -787,7 +791,11 @@
 
     <!-- 메인 팝업 (V9 우승 기념) -->
     <!-- PC: 가운데 카드 + 아래 흰 버튼 줄 / 모바일·태블릿: 화면 아래에서 올라오는 시트 -->
-    <dialog class="promo-popup" id="promo-popup" aria-label="삼성 라이온즈 V9 우승 기념 안내">
+    <dialog
+      class="promo-popup"
+      id="promo-popup"
+      aria-label="삼성 라이온즈 V9 우승 기념 안내"
+    >
       <img
         class="promo-popup-img"
         src="images/v9-popup.jpg"
@@ -796,11 +804,19 @@
         alt="삼성라이온즈 V9 - 2026 한국시리즈 챔피언. 12년만의 우승, 팬들의 힘이 있었기에 가능했습니다. SAMSUNG LIONS"
       />
       <div class="promo-popup-bar">
-        <button type="button" class="promo-popup-action promo-popup-hide" data-promo-hide-today>
+        <button
+          type="button"
+          class="promo-popup-action promo-popup-hide"
+          data-promo-hide-today
+        >
           <span class="promo-popup-check" aria-hidden="true"></span>
           오늘 하루 보지 않기
         </button>
-        <button type="button" class="promo-popup-action promo-popup-close" data-promo-close>
+        <button
+          type="button"
+          class="promo-popup-action promo-popup-close"
+          data-promo-close
+        >
           닫기 <span class="promo-popup-x" aria-hidden="true">✕</span>
         </button>
       </div>
