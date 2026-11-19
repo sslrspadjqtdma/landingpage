@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -22,7 +22,10 @@
       defer
     ></script>
     <script src="captcha.js?v=2026111802" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"
+      defer
+    ></script>
     <script src="notification-email.js?v=2026111802" defer></script>
   </head>
   <body>
@@ -188,14 +191,23 @@
                   <span class="card-label">2026 POST SEASON</span>
                 </div>
                 <div class="feature-video-thumbnail">
+                  <!-- 유튜브 '퍼가기' 코드 (크기는 CSS에서 박스 폭에 맞춰 16:9로 조절)
+                       autoplay=1 접속 시 자동 재생 / mute=1 음소거(브라우저는 소리 있는 자동 재생을 막음)
+                       loop=1 + playlist=영상ID 반복 재생 / playsinline=1 아이폰에서 전체화면 없이 카드 안에서 재생 -->
                   <iframe
-                    data-src="https://www.youtube.com/embed/p7bLBsAqP6o?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=p7bLBsAqP6o&amp;playsinline=1&amp;rel=0"
-                    title="V9을 달성한 삼성 라이온즈 유튜브 영상"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/p7bLBsAqP6o?si=4iqKrUgaPu6IR60a&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=p7bLBsAqP6o&amp;playsinline=1&amp;rel=0"
+                    title="YouTube video player"
+                    frameborder="0"
                     allow="
+                      accelerometer;
                       autoplay;
+                      clipboard-write;
                       encrypted-media;
+                      gyroscope;
                       picture-in-picture;
-                      fullscreen;
+                      web-share;
                     "
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen

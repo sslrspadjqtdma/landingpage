@@ -704,6 +704,7 @@ main [id] {
 .feature-video-thumbnail iframe {
     display: block;
     width: 100%;
+    height: auto; /* 퍼가기 코드의 width/height(560×315) 대신 박스 폭에 맞춤 */
     aspect-ratio: 16 / 9;
     border: 0;
 }
