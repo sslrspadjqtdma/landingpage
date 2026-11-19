@@ -1,0 +1,225 @@
+/* ===== 관리자 로그인 (auth.css 위에 덧씌움) ===== */
+.admin-main {
+    width: min(100% - 32px, 440px);
+}
+.admin-card {
+    word-break: keep-all;
+}
+
+.admin-logo {
+    display: block;
+    width: 72px;
+    height: auto;
+    margin-bottom: 14px;
+}
+
+.admin-card h1 {
+    color: #111827;
+    font-size: clamp(1.7rem, 5.5vw, 2rem);
+    line-height: 1.2;
+}
+
+.admin-description {
+    margin-top: 10px;
+    color: #4b5563;
+    font-size: 0.92rem;
+}
+
+.admin-form {
+    display: grid;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+/* 이름표가 입력칸 왼쪽에 붙은 한 줄 (참고: 관리자 로그인 화면) */
+.admin-field {
+    position: relative;
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    align-items: center;
+    min-height: 50px;
+    border: 1px solid #dce2ec;
+    border-radius: 10px;
+    background: #fbfcfe;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-field:focus-within {
+    border-color: #5b8ef0;
+    box-shadow: 0 0 0 3px rgba(23, 99, 233, 0.14);
+}
+
+.admin-field.is-invalid {
+    border-color: #e5484d;
+}
+
+.admin-field label {
+    position: relative;
+    padding: 0 14px;
+    color: #9aa3b2;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.admin-field label span {
+    font-size: 0.72rem;
+}
+
+/* 이름표와 입력칸 사이 세로 구분선 */
+.admin-field label::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 16px;
+    background: #e3e7ee;
+    transform: translateY(-50%);
+    content: "";
+}
+
+.admin-field input {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 0 14px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #111827;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.admin-field-password input {
+    padding-right: 48px;
+}
+
+/* 비밀번호 보기/숨기기 */
+.admin-eye {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #6b7280;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.admin-eye:hover {
+    background: #eef1f6;
+    color: #111827;
+}
+
+.admin-eye:focus-visible {
+    outline: 3px solid rgba(23, 99, 233, 0.35);
+}
+
+.admin-eye svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.admin-eye-closed,
+.admin-eye[aria-pressed="true"] .admin-eye-open {
+    display: none;
+}
+
+.admin-eye[aria-pressed="true"] .admin-eye-closed {
+    display: block;
+}
+
+.admin-capslock {
+    color: #b45309;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.admin-capslock[hidden] {
+    display: none;
+}
+
+.admin-submit {
+    min-height: 50px;
+    margin-top: 8px;
+    border: 0;
+    border-radius: 10px;
+    background: #1d6ff2;
+    color: #fff;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.admin-submit:hover {
+    background: #145ad1;
+}
+
+.admin-submit:focus-visible {
+    outline: 3px solid rgba(23, 99, 233, 0.35);
+    outline-offset: 3px;
+}
+
+.admin-submit:disabled {
+    background: #93b4ee;
+    cursor: wait;
+}
+
+.admin-status {
+    min-height: 1.4em;
+    color: #1763e9;
+    font-size: 0.84rem;
+    font-weight: 650;
+}
+
+.admin-status.is-error {
+    color: #d93025;
+}
+
+@media (max-width: 680px) {
+    .admin-field input {
+        font-size: 16px; /* iOS 자동 확대 방지 */
+    }
+}
+
+@media (max-width: 420px) {
+    /* 좁은 화면: 이름표를 입력칸 위로 */
+    .admin-field {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 8px;
+    }
+
+    .admin-field label {
+        padding: 0 14px;
+        font-size: 0.74rem;
+    }
+
+    .admin-field label::after {
+        display: none;
+    }
+
+    .admin-field input {
+        height: 40px;
+    }
+
+    .admin-eye {
+        top: auto;
+        bottom: 1px;
+        transform: none;
+    }
+}

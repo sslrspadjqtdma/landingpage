@@ -860,6 +860,20 @@ main [id] {
     outline-offset: 3px;
 }
 
+/* 푸터의 관리자 로그인 링크 (눈에 띄지 않게 작게) */
+.footer-admin-link {
+    margin-left: 10px;
+    color: inherit;
+    font-size: 0.8em;
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.footer-admin-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
 /* ===== 메인 팝업 (V9 우승 기념) ===== */
 /* PC(1101px 이상): 가운데 카드 + 이미지 아래 흰 버튼 줄 (왼쪽 ◯ 오늘 하루 보지 않기 / 오른쪽 닫기 ✕) */
 .promo-popup {
