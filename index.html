@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -9,24 +9,24 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="notification.css?v=2026111802" />
+    <link rel="stylesheet" href="style.css?v=2026111901" />
+    <link rel="stylesheet" href="notification.css?v=2026111901" />
     <link rel="stylesheet" href="history.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css"
     />
-    <link rel="stylesheet" href="captcha.css?v=2026111802" />
+    <link rel="stylesheet" href="captcha.css?v=2026111901" />
     <script
       src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"
       defer
     ></script>
-    <script src="captcha.js?v=2026111802" defer></script>
+    <script src="captcha.js?v=2026111901" defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"
       defer
     ></script>
-    <script src="notification-email.js?v=2026111802" defer></script>
+    <script src="notification-email.js?v=2026111901" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -298,10 +298,17 @@
                   class="location-map media-fill"
                   style="--fill-image: url(&quot;images/map.png&quot;)"
                 >
+                  <!-- 클릭(또는 Enter)하면 약도를 크게 보여 줌 -->
                   <img
                     src="images/map.png"
                     alt="삼성 라이온즈 파크 약도"
                     class="location-map-img"
+                    data-zoom-image
+                    role="button"
+                    tabindex="0"
+                    aria-haspopup="dialog"
+                    aria-label="삼성 라이온즈 파크 약도 크게 보기"
+                    title="클릭하면 크게 볼 수 있어요"
                   />
                 </div>
                 <h3>
@@ -649,6 +656,20 @@
           >
         </dialog>
 
+        <!-- 이미지 크게 보기 (약도 클릭 시) -->
+        <dialog class="image-lightbox" id="image-lightbox" aria-label="이미지 크게 보기">
+          <button
+            type="button"
+            class="image-lightbox-close"
+            aria-label="크게 보기 닫기"
+            data-close-image-lightbox
+          >
+            &times;
+          </button>
+          <img class="image-lightbox-img" src="" alt="" />
+          <p class="image-lightbox-caption"></p>
+        </dialog>
+
         <section class="apply-section" id="apply">
           <div class="apply-copy reveal">
             <p class="section-kicker">STAY IN THE GAME</p>
@@ -763,7 +784,30 @@
         <p>&copy; 2026 삼성 라이온즈 팬 페이지</p>
       </footer>
     </div>
+
+    <!-- 메인 팝업 (V9 우승 기념) -->
+    <!-- PC: 가운데 카드 + 아래 흰 버튼 줄 / 모바일·태블릿: 화면 아래에서 올라오는 시트 -->
+    <dialog class="promo-popup" id="promo-popup" aria-label="삼성 라이온즈 V9 우승 기념 안내">
+      <img
+        class="promo-popup-img"
+        src="images/v9-popup.jpg"
+        width="687"
+        height="1024"
+        alt="삼성라이온즈 V9 - 2026 한국시리즈 챔피언. 12년만의 우승, 팬들의 힘이 있었기에 가능했습니다. SAMSUNG LIONS"
+      />
+      <div class="promo-popup-bar">
+        <button type="button" class="promo-popup-action promo-popup-hide" data-promo-hide-today>
+          <span class="promo-popup-check" aria-hidden="true"></span>
+          오늘 하루 보지 않기
+        </button>
+        <button type="button" class="promo-popup-action promo-popup-close" data-promo-close>
+          닫기 <span class="promo-popup-x" aria-hidden="true">✕</span>
+        </button>
+      </div>
+    </dialog>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="script.js?v=2026111802" defer></script>
+    <script src="script.js?v=2026111901" defer></script>
+    <script src="popup.js?v=2026111901" defer></script>
   </body>
 </html>

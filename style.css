@@ -845,6 +845,292 @@ main [id] {
     display: block;
 }
 
+/* 클릭하면 크게 보이는 이미지 */
+[data-zoom-image] {
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+}
+
+[data-zoom-image]:hover {
+    transform: scale(1.02);
+}
+
+[data-zoom-image]:focus-visible {
+    outline: 3px solid rgba(23, 99, 233, 0.5);
+    outline-offset: 3px;
+}
+
+/* ===== 메인 팝업 (V9 우승 기념) ===== */
+/* PC(1101px 이상): 가운데 카드 + 이미지 아래 흰 버튼 줄 (왼쪽 ◯ 오늘 하루 보지 않기 / 오른쪽 닫기 ✕) */
+.promo-popup {
+    /* 이미지 비율(687×1024) 그대로, 화면 높이에도 맞춤 (아래 버튼 줄 48px 포함) */
+    width: min(400px, calc(100vw - 32px), calc((100svh - 48px - 48px) * 687 / 1024));
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+.promo-popup::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.promo-popup[open] {
+    animation: promo-popup-in 0.25s ease;
+}
+
+.promo-popup-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.promo-popup-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 6px;
+    border-top: 1px solid #eceff4;
+    background: #fff;
+}
+
+.promo-popup-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 100%;
+    padding: 0 12px;
+    border: 0;
+    background: transparent;
+    color: #4b5563;
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+}
+
+.promo-popup-action:hover {
+    color: #111827;
+}
+
+.promo-popup-action:focus-visible {
+    outline: 2px solid #1763e9;
+    outline-offset: -4px;
+    border-radius: 6px;
+}
+
+/* 동그라미 체크 아이콘 */
+.promo-popup-check {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #b8c0cc;
+    border-radius: 50%;
+}
+
+.promo-popup-check::after {
+    position: absolute;
+    top: 3px;
+    left: 5.5px;
+    width: 4px;
+    height: 7px;
+    border: solid #b8c0cc;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+    content: "";
+}
+
+.promo-popup-hide:hover .promo-popup-check {
+    border-color: #1763e9;
+    background: #1763e9;
+}
+
+.promo-popup-hide:hover .promo-popup-check::after {
+    border-color: #fff;
+}
+
+.promo-popup-x {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+/* 팝업이 떠 있는 동안 뒤 페이지 스크롤 막기 */
+html.promo-popup-open {
+    overflow: hidden;
+}
+
+@keyframes promo-popup-in {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+}
+
+/* PC 레이어 팝업: 대기업 사이트처럼 헤더 아래 왼쪽 위에 고정, 마우스로 끌어서 이동 */
+@media (min-width: 1101px) {
+    .promo-popup.is-floating {
+        position: fixed;
+        inset: auto;
+        top: 110px;
+        left: max(24px, calc(50vw - 620px)); /* 본문(1240px) 왼쪽 끝에 맞춤 */
+        z-index: 1000;
+        /* 화면 높이에도 들어가게 (위쪽 110px + 아래 여유 24px + 버튼 줄 48px) */
+        width: min(400px, calc((100svh - 110px - 24px - 48px) * 687 / 1024));
+        min-width: 260px;
+        margin: 0;
+        cursor: grab;
+        user-select: none;
+        touch-action: none;
+    }
+
+    .promo-popup.is-floating .promo-popup-img {
+        pointer-events: none; /* 이미지 자체 끌기 대신 팝업이 움직이게 */
+    }
+
+    .promo-popup.is-dragging {
+        cursor: grabbing;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .promo-popup.is-floating .promo-popup-action {
+        cursor: pointer;
+    }
+}
+
+/* 모바일·태블릿(1100px 이하): 화면 아래에서 올라오는 시트
+   이미지 위쪽만 둥글게, 아래 흰 줄은 "오늘 하루 보지 않기 | 닫기" 두 칸 */
+@media (max-width: 1100px) {
+    .promo-popup {
+        width: min(480px, 100vw, calc((100svh - 52px - 24px) * 687 / 1024));
+        margin: auto auto 0;
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .promo-popup[open] {
+        animation: promo-popup-up 0.3s ease;
+    }
+
+    .promo-popup-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 52px;
+        padding: 0 0 env(safe-area-inset-bottom);
+        box-sizing: content-box;
+    }
+
+    .promo-popup-action {
+        justify-content: center;
+        color: #374151;
+        font-size: 0.92rem;
+    }
+
+    .promo-popup-action + .promo-popup-action {
+        border-left: 1px solid #e5e7eb;
+    }
+
+    /* 시트형에서는 아이콘 없이 글자만 (참고 이미지처럼) */
+    .promo-popup-check,
+    .promo-popup-x {
+        display: none;
+    }
+}
+
+@keyframes promo-popup-up {
+    from {
+        transform: translateY(100%);
+    }
+}
+
+/* 이미지 크게 보기 창 */
+.image-lightbox {
+    width: fit-content;
+    max-width: calc(100vw - 24px);
+    max-height: calc(100svh - 24px);
+    margin: auto;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+}
+
+.image-lightbox::backdrop {
+    background: rgba(8, 14, 28, 0.82);
+    backdrop-filter: blur(4px);
+}
+
+.image-lightbox[open] {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    animation: image-lightbox-in 0.2s ease;
+}
+
+.image-lightbox-img {
+    display: block;
+    /* 화면 폭·높이 중 먼저 닿는 쪽에 맞춰 원본 비율 그대로 확대 (--ratio = 가로/세로, script.js에서 설정) */
+    width: min(900px, calc(100vw - 24px), calc((100svh - 110px) * var(--ratio, 1)));
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    cursor: zoom-out;
+}
+
+.image-lightbox-caption {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.image-lightbox-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: #14213b;
+    font-size: 1.6rem;
+    line-height: 1;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.image-lightbox-close:focus-visible {
+    outline: 3px solid rgba(23, 99, 233, 0.6);
+    outline-offset: 2px;
+}
+
+@keyframes image-lightbox-in {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+}
+
+@media (max-width: 680px) {
+    .image-lightbox-close {
+        top: -50px;
+        right: 0;
+    }
+}
+
 .directions-card h3 {
     margin-top: 3px;
 }

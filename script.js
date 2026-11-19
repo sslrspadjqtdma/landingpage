@@ -240,6 +240,39 @@ new Swiper(".cards-swiper", {
   );
 }
 
+// ===== 이미지 크게 보기 (data-zoom-image 가 붙은 이미지 클릭 시) =====
+{
+  const lightbox = document.querySelector("#image-lightbox");
+  const lightboxImg = lightbox?.querySelector(".image-lightbox-img");
+  const caption = lightbox?.querySelector(".image-lightbox-caption");
+
+  const open = (img) => {
+    if (img.naturalWidth && img.naturalHeight) {
+      lightboxImg.style.setProperty("--ratio", img.naturalWidth / img.naturalHeight);
+    }
+    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.alt = img.alt;
+    caption.textContent = img.alt;
+    lightbox.showModal();
+  };
+
+  document.querySelectorAll("[data-zoom-image]").forEach((img) => {
+    img.addEventListener("click", () => open(img));
+    img.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open(img);
+      }
+    });
+  });
+
+  // 닫기: X 버튼, 사진 바깥(어두운 배경) 클릭, ESC 키(브라우저 기본)
+  lightbox?.querySelector("[data-close-image-lightbox]").addEventListener("click", () => lightbox.close());
+  lightbox?.addEventListener("click", (event) => {
+    if (event.target === lightbox || event.target === lightboxImg) lightbox.close();
+  });
+}
+
 // ===== 알림 신청 다이얼로그 =====
 {
   const dialog = document.querySelector("#notification-dialog");
